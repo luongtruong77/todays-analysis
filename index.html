@@ -63,7 +63,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
 </style></head><body><main>
 <header><h1 id="title">Today&apos;s Analysis</h1><div class="hd"><span>Odds 9:39 AM PT</span><button type="button" class="theme" id="theme">◐ Auto</button></div></header>
 <nav class="tabs"><button data-tab="nfl">NFL <span style="opacity:.7;font-weight:400">14</span></button><button data-tab="soccer">Soccer <span style="opacity:.7;font-weight:400">122</span></button><button data-tab="cfb">College Football <span style="opacity:.7;font-weight:400">52</span></button><button data-tab="nhl">NHL <span style="opacity:.7;font-weight:400">14</span></button><button data-tab="nba">NBA <span style="opacity:.7;font-weight:400">14</span></button><button data-tab="mlb">MLB <span style="opacity:.7;font-weight:400">1</span></button><button data-tab="wnba">WNBA <span style="opacity:.7;font-weight:400">1</span></button></nav>
-<nav class="subs" hidden><button data-league="uefa-europa-league">Europa League (18)</button><button data-league="uefa-conference-league">Conference League (18)</button><button data-league="bundesliga">bundesliga (9)</button><button data-league="ligue-1">ligue-1 (10)</button><button data-league="serie-a">serie-a (18)</button><button data-league="la-liga">La Liga (10)</button><button data-league="epl">epl (10)</button><button data-league="mls">MLS (29)</button></nav>
+<nav class="subs" hidden><button data-league="uefa-europa-league">Europa League (18)</button><button data-league="uefa-conference-league">Conference League (18)</button><button data-league="epl">Premier League (10)</button><button data-league="la-liga">La Liga (10)</button><button data-league="bundesliga">Bundesliga (9)</button><button data-league="serie-a">Serie A (18)</button><button data-league="ligue-1">Ligue 1 (10)</button><button data-league="mls">MLS (29)</button></nav>
 <nav class="days"></nav>
 <section class="watch" data-league="uefa-europa-league" data-day="2026-10-22">
   <h3>★ Games to watch</h3>
@@ -8059,7 +8059,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
 <p class="note">Static snapshot: analyses as of when each was written, best prices as of the odds time above. Rows show LIVE/FINAL by kickoff time only.</p>
 <footer class="usage">Odds API usage unavailable.</footer>
 </main><script>
-const LABEL={"nfl":"NFL","cfb":"College Football","nba-preseason":"NBA Preseason","nhl":"NHL","nba":"NBA","wnba":"WNBA","mlb":"MLB","mls":"MLS","la-liga":"La Liga","uefa-champions-league":"Champions League","uefa-europa-league":"Europa League","uefa-conference-league":"Conference League"};let tab,sub,day;
+const LABEL={"nfl":"NFL","cfb":"College Football","nba-preseason":"NBA Preseason","nhl":"NHL","nba":"NBA","wnba":"WNBA","mlb":"MLB","mls":"MLS","la-liga":"La Liga","uefa-champions-league":"Champions League","uefa-europa-league":"Europa League","uefa-conference-league":"Conference League","epl":"Premier League","bundesliga":"Bundesliga","serie-a":"Serie A","ligue-1":"Ligue 1","uefa-nations-league":"Nations League"};let tab,sub,day;
 try{tab=localStorage.getItem('ta-tab');sub=localStorage.getItem('ta-sub')}catch(e){}
 const tabs=[...document.querySelectorAll('.tabs button')],subs=[...document.querySelectorAll('.subs button')],rows=[...document.querySelectorAll('li.game')];
 const pdate=(d)=>d.toLocaleDateString('en-CA',{timeZone:'America/Los_Angeles'});
