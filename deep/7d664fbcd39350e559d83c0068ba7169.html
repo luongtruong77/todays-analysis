@@ -1,0 +1,324 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CHI @ SEA Deep Dive</title>
+<script>try{const t=localStorage.getItem('ta-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+:root{--bg:#fff;--ink:#111827;--mute:#4b5563;--line:#e5e7eb;--line2:#f9fafb;--card:#fff;--link:#2563eb;--up:#15803d;--down:#b91c1c;--cav:#b45309;--home:#15803d;--away:#c2410c;--close:#6b7280;--barInk:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#030712;--ink:#f3f4f6;--mute:#9ca3af;--line:#1f2937;--line2:#111827;--card:#0b1220;--link:#60a5fa;--up:#4ade80;--down:#f87171;--cav:#fbbf24;--home:#86efac;--away:#fdba74;--close:#374151;--barInk:#030712;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#030712;--ink:#f3f4f6;--mute:#9ca3af;--line:#1f2937;--line2:#111827;--card:#0b1220;--link:#60a5fa;--up:#4ade80;--down:#f87171;--cav:#fbbf24;--home:#86efac;--away:#fdba74;--close:#374151;--barInk:#030712;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;padding:0 16px}
+main{max-width:46rem;margin:0 auto;padding:16px 0 48px}p{margin:0}main>*+*{margin-top:20px}
+a{color:var(--link)}.back{font-size:14px;text-decoration:none}.back:hover{text-decoration:underline}
+h1{font-size:24px;line-height:1.25;margin:4px 0 0}h2{font-size:20px;margin:2px 0 0}h3{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--mute);margin:20px 0 8px}
+h4{font-size:14px;margin:14px 0 6px}.meta{font-size:13px;color:var(--mute)}.note{font-size:12px;color:var(--mute)}.why{font-size:12px;color:var(--mute)}
+nav.jump{scrollbar-width:none;position:sticky;top:0;z-index:2;background:var(--bg);display:flex;gap:6px;overflow-x:auto;padding:8px 0;border-bottom:1px solid var(--line)}
+nav.jump a{flex-shrink:0;font-size:13px;font-weight:500;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+.bar{display:flex;height:28px;border-radius:6px;overflow:hidden;font-size:12px;font-weight:600}.bar>div{display:flex;align-items:center;justify-content:center;color:var(--barInk);min-width:0;white-space:nowrap;overflow:hidden}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:12px;color:var(--mute);margin-top:6px}.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:8px}.stat{border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.stat b{display:block;font-size:18px;font-variant-numeric:tabular-nums}.stat span{font-size:12px;color:var(--mute)}
+.inj{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:12px}.team{border:1px solid var(--line);border-radius:8px;padding:12px}
+.team h3{margin:0 0 8px}.team ul{margin:0;padding-left:18px;font-size:13px}.team li+li{margin-top:4px}.tag{font-size:11px;font-weight:600;padding:1px 6px;border-radius:4px;margin-right:4px}
+.tag.out{background:color-mix(in srgb,var(--down) 18%,transparent);color:var(--down)}.tag.q{background:color-mix(in srgb,var(--cav) 18%,transparent);color:var(--cav)}
+.status{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;border:1px solid var(--cav);color:var(--cav)}.status.final{border-color:var(--up);color:var(--up)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px}table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:6px 8px;text-align:left;border-top:1px solid var(--line);white-space:nowrap}thead th{border-top:0;font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--mute);font-weight:600}
+.ph th{background:var(--line2);font-size:13px;font-weight:600}.role{font-weight:400;color:var(--mute);font-size:11px;margin-left:4px}
+td.n{text-align:right;font-variant-numeric:tabular-nums}td.b{font-weight:600}td.why{white-space:normal}
+.lean{font-size:12px;font-weight:600}.lean.up{color:var(--up)}.lean.down{color:var(--down)}.lean.flat{color:var(--mute)}
+.scen{border:1px solid var(--line);border-left:4px solid var(--tone);border-radius:8px;padding:16px;scroll-margin-top:52px}.scen>p{margin-top:10px}
+.kicker{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--tone)}
+.score{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-top:8px;font-size:26px;font-variant-numeric:tabular-nums}.score b{font-size:15px}.dash{color:var(--mute)}
+.chance{font-size:13px;color:var(--mute);margin-left:4px}.keys{margin:0;padding-left:18px;font-size:14px}.keys li+li{margin-top:4px}
+ol.legs{list-style:none;margin:0;padding:0}ol.legs li{display:flex;gap:8px}ol.legs li+li{margin-top:8px}
+.num{flex-shrink:0;width:20px;height:20px;border-radius:999px;background:var(--tone);color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.lbl{font-weight:500;font-size:14px}.price{font-weight:400;font-size:13px;color:var(--mute)}.cav{font-size:12px;color:var(--cav)}.cav li+li{margin-top:4px}
+#home{--tone:var(--home)}#away{--tone:var(--away)}
+</style></head><body><main>
+<a class="back" href="../">← Today's Analysis</a>
+<header><p class="meta">Deep dive · Mon, Nov 2, 5:20 PM PT · updated Nov 2, 1:52 PM PT</p>
+<h1>Chicago Bears @ Seattle Seahawks</h1></header>
+<nav class="jump"><a href="#market">Market</a><a href="#inactives">Inactives</a><a href="#matchup">Matchup</a><a href="#home">If SEA dominate</a><a href="#away">If CHI dominate</a><a href="#method">Method</a></nav>
+<p>The market sees a close game: Seattle by about 3 with 46–47 points. This page asks the other question. What does the box score look like if one team takes over and wins by two scores or more? Each section gives the chance of that script from the market, a projected score, how it would happen, and every main player prop re-projected under that script, then the legs that fit it best.</p>
+
+<section id="market"><h3>Market snapshot</h3>
+<div class="grid">
+  <div class="stat"><b>SEA -3.5</b><span>spread · SEA wins 61% (Pinnacle no-vig)</span></div>
+  <div class="stat"><b>46.5</b><span>total · Over 50% no-vig</span></div>
+  <div class="stat"><b>SEA 24.9 · CHI 21.7</b><span>implied team points</span></div>
+</div>
+<h3>How the game splits</h3>
+<div class="bar" role="img" aria-label="SEA wins by 10+ 32%, one-score game 51%, CHI wins by 10+ 17%">
+  <div style="width:31.900000000000002%;background:var(--home)">SEA 32%</div>
+  <div style="width:50.6%;background:var(--close);color:#fff">Within 9: 51%</div>
+  <div style="width:17.4%;background:var(--away)">CHI 17%</div></div>
+<div class="legend"><span><i style="background:var(--home)"></i>SEA by 10+</span><span><i style="background:var(--close)"></i>One-score game (either side)</span><span><i style="background:var(--away)"></i>CHI by 10+</span></div>
+<p class="note" style="margin-top:6px">Margin ~ Normal(SEA +3.2, σ 13.5) fitted to the no-vig ML and spread.</p></section>
+
+<section id="inactives"><h3>Injuries &amp; inactives <span class="status">Projected</span></h3>
+<p class="note">Final injury reports (Sat/Sun). Official inactives post ~3:50 PM PT.</p>
+<div class="inj" style="margin-top:8px"><div class="team"><h3>CHI</h3><ul>
+  <li><span class="tag out">OUT</span><b>Kyle Monangai (#25) RB</b>: Thumb/toe, 4th straight game. D'Andre Swift (#4) gets 16–22 carries; Roschon Johnson (#23) spells him.</li>
+  <li><span class="tag q">Q/D</span><b>Malik Muhammad CB</b>: Toe; limited all week</li><li><span class="tag q">Q/D</span><b>D'Marco Jackson LB</b>: Ankle; full Saturday, expected to play</li>
+  <li>Colston Loveland (#84) TE cleared (neck), no designation.</li><li>T.J. Edwards LB (hamstring) and Jack Sanborn LB (concussion) were full and have no designation.</li><li>Jeffery Simmons (#99) DT debuts after the trade from Tennessee; his snap count may be limited.</li></ul></div><div class="team"><h3>SEA</h3><ul>
+  <li><span class="tag out">OUT</span><b>Charles Cross (#67) LT</b>: Ankle. Josh Jones (#74) starts at LT against Montez Sweat (#98): the biggest matchup swing on the board.</li><li><span class="tag out">OUT</span><b>Rashid Shaheed (#22) WR</b>: Knee. His 4.3 targets a game go to Jaxon Smith-Njigba (#11), Cooper Kupp (#10) and Tory Horton (#15).</li><li><span class="tag out">OUT</span><b>Velus Jones Jr. (#33) RB</b>: Hamstring; minor role.</li>
+  <li><span class="tag q">Q/D</span><b>Uchenna Nwosu (#7) LB</b>: Ankle, DOUBTFUL (no practice all week). Less edge rush.</li><li><span class="tag q">Q/D</span><b>Drew Lock (#2) QB</b>: Elbow; backup only, Sam Darnold (#14) starts.</li><li><span class="tag q">Q/D</span><b>Anthony Bradford G</b>: Knee; limited.</li><li><span class="tag q">Q/D</span><b>Patrick O'Connell LB</b>: Toe.</li>
+  <li>Zach Charbonnet (#26) RB expected to make his season debut, and Jadarian Price (#8) RB is due off IR (needs a roster move). With Emanuel Wilson (#23) that's a three-way RB split: the biggest unknown for SEA props.</li><li>Quenton Nelson (#56) G debuts after the trade from Indianapolis.</li></ul></div></div></section>
+
+<section id="matchup"><h3>Matchup by efficiency (this season, play-by-play)</h3>
+<div class="tw"><table><thead><tr><th></th><th class="n">CHI</th><th class="n">SEA</th></tr></thead><tbody>
+<tr><td>Offense EPA/play</td><td class="n b">+0.047</td><td class="n">-0.040</td></tr>
+<tr><td>Pass EPA/play</td><td class="n b">+0.106</td><td class="n">+0.057</td></tr>
+<tr><td>Rush EPA/play</td><td class="n b">-0.016</td><td class="n">-0.155</td></tr>
+<tr><td>Offense red-zone TD%</td><td class="n">50%</td><td class="n b">55%</td></tr>
+<tr><td>Defense EPA/play allowed</td><td class="n">-0.002</td><td class="n b">-0.131</td></tr>
+<tr><td>Pass EPA allowed</td><td class="n">+0.021</td><td class="n b">-0.137</td></tr>
+<tr><td>Rush EPA allowed</td><td class="n">-0.037</td><td class="n b">-0.124</td></tr>
+<tr><td>Red-zone TD% allowed</td><td class="n b">69%</td><td class="n">85%</td></tr>
+</tbody></table></div><p class="note" style="margin-top:6px">Bold marks the better side (lower is better on defense). Efficiency is context for the scripts below, not a betting edge on its own.</p></section>
+
+<section class="scen" id="home" style="--tone:undefined">
+  <div class="scen-head"><p class="kicker">Seattle Seahawks win by 10+</p><h2>If the Seahawks dominate</h2>
+    <div class="score"><span><b>SEA</b> 33</span><span class="dash">–</span><span>15 <b>CHI</b></span>
+    <span class="chance">32% chance · avg margin 18.3</span></div></div>
+  <p>Mike Macdonald's defense, the best in the league by EPA allowed per dropback (−0.137), does what it does to most offenses. It disguises pressure, Caleb Williams (#18) holds the ball, and the Bears go three-and-out or turn it over. Seattle's offense has been mediocre (−0.04 EPA/play), so the blowout path runs through Jaxon Smith-Njigba (#11) winning early against an average Chicago secondary, short fields from takeaways, and then a fresh three-back rotation grinding the clock in the second half. Chicago spends the fourth quarter throwing into soft coverage.</p>
+  <h3>What has to happen</h3><ul class="keys"><li>Josh Jones (#74) holds up at left tackle so Sam Darnold (#14) stays clean. Pressure is what turns Darnold's game into turnovers.</li><li>SEA wins the turnover battle: Chicago's defense is opportunistic, but Caleb against a disguised rush is the likelier source.</li><li>Smith-Njigba gets his usual 11+ targets with Shaheed out, and the red-zone offense (54.5% TDs) finishes drives.</li><li>Swift is held under 3.5 yards a carry, so Chicago becomes one-dimensional by halftime.</li></ul>
+  <h3>Projected box score in this script</h3>
+  <p class="note">"Market" is the median implied by each prop line; "Script" is the projection if this scenario happens. TD rows show the chance of scoring.</p>
+  <h4>SEA (dominating)</h4><div class="tw"><table><thead><tr><th>Stat</th><th>Line</th><th>Market</th><th>Script</th><th title="Chance the Over (or TD) hits: market → this script">Over %</th><th>Lean</th></tr></thead>
+  <tbody><tr class="ph"><th colspan="6">Sam Darnold (#14) <span class="role">QB</span></th></tr><tr>
+    <td>Pass yds</td><td class="n">238.5</td><td class="n">241.3</td><td class="n b">224.4</td>
+    <td class="n">52% → <b>42%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Pass TDs</td><td class="n">1.5</td><td class="n">1.7</td><td class="n b">2.1</td>
+    <td class="n">51% → <b>61%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Rush yds</td><td class="n">4.5</td><td class="n">4.6</td><td class="n b">3.9</td>
+    <td class="n">51% → <b>43%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">11%</td><td class="n b">13%</td>
+    <td class="n">11% → <b>13%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Zach Charbonnet (#26) <span class="role">RB</span></th></tr><tr>
+    <td>Rush yds</td><td class="n">27.5</td><td class="n">26.7</td><td class="n b">33.3</td>
+    <td class="n">48% → <b>66%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">1.5</td><td class="n">1.4</td><td class="n b">1.1</td>
+    <td class="n">40% → <b>28%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Rec yds</td><td class="n">7.5</td><td class="n">7.4</td><td class="n b">6.3</td>
+    <td class="n">49% → <b>39%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">39%</td><td class="n b">54%</td>
+    <td class="n">39% → <b>54%</b></td><td><span class="lean up">TD ↑</span></td></tr><tr class="ph"><th colspan="6">Jadarian Price (#8) <span class="role">RB</span></th></tr><tr>
+    <td>Rush yds</td><td class="n">29.5</td><td class="n">29.6</td><td class="n b">36.9</td>
+    <td class="n">50% → <b>68%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">16%</td><td class="n b">23%</td>
+    <td class="n">16% → <b>23%</b></td><td><span class="lean up">TD ↑</span></td></tr><tr class="ph"><th colspan="6">Emanuel Wilson (#23) <span class="role">RB</span></th></tr><tr>
+    <td>Rush yds</td><td class="n">21.5</td><td class="n">21.3</td><td class="n b">26.7</td>
+    <td class="n">50% → <b>67%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">20%</td><td class="n b">29%</td>
+    <td class="n">20% → <b>29%</b></td><td><span class="lean up">TD ↑</span></td></tr><tr class="ph"><th colspan="6">Jaxon Smith-Njigba (#11) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">99.5</td><td class="n">103</td><td class="n b">99.9</td>
+    <td class="n">52% → <b>50%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Receptions</td><td class="n">7.5</td><td class="n">7.2</td><td class="n b">6.9</td>
+    <td class="n">47% → <b>42%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">50%</td><td class="n b">59%</td>
+    <td class="n">50% → <b>59%</b></td><td><span class="lean up">TD ↑</span></td></tr><tr class="ph"><th colspan="6">Cooper Kupp (#10) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">29.5</td><td class="n">29.3</td><td class="n b">28.4</td>
+    <td class="n">50% → <b>48%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Receptions</td><td class="n">2.5</td><td class="n">2.7</td><td class="n b">2.6</td>
+    <td class="n">57% → <b>53%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">23%</td><td class="n b">28%</td>
+    <td class="n">23% → <b>28%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Tory Horton (#15) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">22.5</td><td class="n">23.2</td><td class="n b">22.5</td>
+    <td class="n">52% → <b>50%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Receptions</td><td class="n">1.5</td><td class="n">1.7</td><td class="n b">1.6</td>
+    <td class="n">60% → <b>56%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">19%</td><td class="n b">24%</td>
+    <td class="n">19% → <b>24%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">AJ Barner (#88) <span class="role">TE</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">30.5</td><td class="n">30.3</td><td class="n b">29.4</td>
+    <td class="n">50% → <b>48%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Receptions</td><td class="n">3.5</td><td class="n">3.2</td><td class="n b">3</td>
+    <td class="n">41% → <b>37%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">27%</td><td class="n b">33%</td>
+    <td class="n">27% → <b>33%</b></td><td><span class="lean up">TD ↑</span></td></tr></tbody></table></div>
+  <h4>CHI (dominated)</h4><div class="tw"><table><thead><tr><th>Stat</th><th>Line</th><th>Market</th><th>Script</th><th title="Chance the Over (or TD) hits: market → this script">Over %</th><th>Lean</th></tr></thead>
+  <tbody><tr class="ph"><th colspan="6">Caleb Williams (#18) <span class="role">QB</span></th></tr><tr>
+    <td>Pass yds</td><td class="n">224.5</td><td class="n">227.3</td><td class="n b">254.6</td>
+    <td class="n">52% → <b>68%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Pass TDs</td><td class="n">1.5</td><td class="n">1.4</td><td class="n b">1.1</td>
+    <td class="n">42% → <b>30%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Rush yds</td><td class="n">24.5</td><td class="n">25.2</td><td class="n b">28.9</td>
+    <td class="n">52% → <b>60%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">17%</td><td class="n b">13%</td>
+    <td class="n">17% → <b>13%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">D'Andre Swift (#4) <span class="role">RB</span></th></tr><tr>
+    <td>Rush yds</td><td class="n">59.5</td><td class="n">59.1</td><td class="n b">41.4</td>
+    <td class="n">50% → <b>29%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Receptions</td><td class="n">3.5</td><td class="n">3.3</td><td class="n b">4.1</td>
+    <td class="n">44% → <b>66%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Rec yds</td><td class="n">21.5</td><td class="n">21.2</td><td class="n b">25.5</td>
+    <td class="n">49% → <b>62%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">50%</td><td class="n b">30%</td>
+    <td class="n">50% → <b>30%</b></td><td><span class="lean down">TD ↓</span></td></tr><tr class="ph"><th colspan="6">Roschon Johnson (#23) <span class="role">RB</span></th></tr><tr>
+    <td>Rush yds</td><td class="n">10.5</td><td class="n">10.5</td><td class="n b">7.3</td>
+    <td class="n">50% → <b>29%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Receptions</td><td class="n">0.5</td><td class="n">0.5</td><td class="n b">0.7</td>
+    <td class="n">56% → <b>76%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Rec yds</td><td class="n">3.5</td><td class="n">3.5</td><td class="n b">4.1</td>
+    <td class="n">49% → <b>62%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">19%</td><td class="n b">10%</td>
+    <td class="n">19% → <b>10%</b></td><td><span class="lean down">TD ↓</span></td></tr><tr class="ph"><th colspan="6">Luther Burden III (#10) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">53.5</td><td class="n">54.1</td><td class="n b">59.5</td>
+    <td class="n">51% → <b>57%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">4.5</td><td class="n">4.2</td><td class="n b">4.7</td>
+    <td class="n">43% → <b>54%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">29%</td><td class="n b">23%</td>
+    <td class="n">29% → <b>23%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Rome Odunze (#15) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">40.5</td><td class="n">39.6</td><td class="n b">43.5</td>
+    <td class="n">49% → <b>55%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">3.5</td><td class="n">3.2</td><td class="n b">3.5</td>
+    <td class="n">41% → <b>51%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">26%</td><td class="n b">20%</td>
+    <td class="n">26% → <b>20%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Kalif Raymond (#14) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">16.5</td><td class="n">17.1</td><td class="n b">18.8</td>
+    <td class="n">52% → <b>59%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">2.5</td><td class="n">2.2</td><td class="n b">2.5</td>
+    <td class="n">40% → <b>51%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">14%</td><td class="n b">11%</td>
+    <td class="n">14% → <b>11%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Colston Loveland (#84) <span class="role">TE</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">44.5</td><td class="n">44.5</td><td class="n b">49</td>
+    <td class="n">50% → <b>57%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">4.5</td><td class="n">4.3</td><td class="n b">4.8</td>
+    <td class="n">45% → <b>56%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">30%</td><td class="n b">24%</td>
+    <td class="n">30% → <b>24%</b></td><td><span class="lean down">TD ↓</span></td></tr></tbody></table></div>
+  <h3>If you're betting this script</h3>
+  <p class="note">Conditional legs: the chance shown is the market's fair chance → the chance if this script plays out. They are only worth it if you think this script is likelier than 32%.</p>
+  <ol class="legs"><li><span class="num">1</span><div><p class="lbl">Seattle Seahawks ML <span class="price">-159 Novig</span></p>
+    <p class="why">Market 61%; wins by definition in this script.</p></div></li><li><span class="num">2</span><div><p class="lbl">Seattle Seahawks -3.5 <span class="price">+113 Novig ⚑</span></p>
+    <p class="why">Market 47%; wins by definition in this script.</p></div></li><li><span class="num">3</span><div><p class="lbl">Over 46.5 <span class="price">+104 Novig ⚑</span></p>
+    <p class="why">Market 50% → 56% in this script.</p></div></li><li><span class="num">4</span><div><p class="lbl">D'Andre Swift (#4) Receptions Over 3.5 <span class="price">+122 Novig</span></p>
+    <p class="why">Market 44% → 66% in this script.</p></div></li><li><span class="num">5</span><div><p class="lbl">D'Andre Swift (#4) Rush yds Under 59.5 <span class="price">-104 Novig</span></p>
+    <p class="why">Market 51% → 71% in this script.</p></div></li><li><span class="num">6</span><div><p class="lbl">Roschon Johnson (#23) Rush yds Under 10.5 <span class="price">-108 DraftKings</span></p>
+    <p class="why">Market 50% → 71% in this script.</p></div></li><li><span class="num">7</span><div><p class="lbl">Roschon Johnson (#23) Receptions Over 0.5 <span class="price">-130 Novig</span></p>
+    <p class="why">Market 56% → 76% in this script.</p></div></li><li><span class="num">8</span><div><p class="lbl">Zach Charbonnet (#26) Rush yds Over 27.5 <span class="price">+108 Novig</span></p>
+    <p class="why">Market 48% → 66% in this script.</p></div></li><li><span class="num">9</span><div><p class="lbl">Emanuel Wilson (#23) Rush yds Over 21.5 <span class="price">-109 Novig</span></p>
+    <p class="why">Market 50% → 67% in this script.</p></div></li></ol>
+  </section>
+<section class="scen" id="away" style="--tone:undefined">
+  <div class="scen-head"><p class="kicker">Chicago Bears win by 10+</p><h2>If the Bears dominate</h2>
+    <div class="score"><span><b>CHI</b> 33</span><span class="dash">–</span><span>16 <b>SEA</b></span>
+    <span class="chance">17% chance · avg margin 16.8</span></div></div>
+  <p>Ben Johnson's offense keeps humming: Chicago has the better offense on paper (+0.047 EPA/play, +0.106 per dropback), and Williams has thrown for 305 and 308 since returning. The blowout path starts up front. Montez Sweat (#98) and the debuting Jeffery Simmons (#99) feast on a Seattle line missing Charles Cross, and Sam Darnold (23rd in QBR) gives the ball away. Seattle's run game is one of the league's worst by EPA (−0.155 per rush) and can't sustain drives, Seattle allows TDs on 85% of red-zone trips, and Swift closes it out on the ground.</p>
+  <h3>What has to happen</h3><ul class="keys"><li>Sweat vs Josh Jones: sacks and strip-sacks from the backup left tackle's side.</li><li>Williams beats the disguises pre-snap: quick game to Luther Burden III (#10) and Colston Loveland (#84) beats the blitz.</li><li>Chicago turns red-zone trips into TDs (50% so far), where Seattle's defense has been weakest.</li><li>Seattle's new three-back split stalls, putting the game on Darnold's arm while trailing.</li></ul>
+  <h3>Projected box score in this script</h3>
+  <p class="note">"Market" is the median implied by each prop line; "Script" is the projection if this scenario happens. TD rows show the chance of scoring.</p>
+  <h4>CHI (dominating)</h4><div class="tw"><table><thead><tr><th>Stat</th><th>Line</th><th>Market</th><th>Script</th><th title="Chance the Over (or TD) hits: market → this script">Over %</th><th>Lean</th></tr></thead>
+  <tbody><tr class="ph"><th colspan="6">Caleb Williams (#18) <span class="role">QB</span></th></tr><tr>
+    <td>Pass yds</td><td class="n">224.5</td><td class="n">227.3</td><td class="n b">211.4</td>
+    <td class="n">52% → <b>42%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Pass TDs</td><td class="n">1.5</td><td class="n">1.4</td><td class="n b">1.9</td>
+    <td class="n">42% → <b>57%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Rush yds</td><td class="n">24.5</td><td class="n">25.2</td><td class="n b">21.4</td>
+    <td class="n">52% → <b>43%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">17%</td><td class="n b">22%</td>
+    <td class="n">17% → <b>22%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">D'Andre Swift (#4) <span class="role">RB</span></th></tr><tr>
+    <td>Rush yds</td><td class="n">59.5</td><td class="n">59.1</td><td class="n b">73.9</td>
+    <td class="n">50% → <b>67%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">3.5</td><td class="n">3.3</td><td class="n b">2.8</td>
+    <td class="n">44% → <b>32%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Rec yds</td><td class="n">21.5</td><td class="n">21.2</td><td class="n b">18</td>
+    <td class="n">49% → <b>39%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">50%</td><td class="n b">69%</td>
+    <td class="n">50% → <b>69%</b></td><td><span class="lean up">TD ↑</span></td></tr><tr class="ph"><th colspan="6">Roschon Johnson (#23) <span class="role">RB</span></th></tr><tr>
+    <td>Rush yds</td><td class="n">10.5</td><td class="n">10.5</td><td class="n b">13.1</td>
+    <td class="n">50% → <b>67%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">0.5</td><td class="n">0.5</td><td class="n b">0.5</td>
+    <td class="n">56% → <b>43%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Rec yds</td><td class="n">3.5</td><td class="n">3.5</td><td class="n b">2.9</td>
+    <td class="n">49% → <b>39%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">19%</td><td class="n b">30%</td>
+    <td class="n">19% → <b>30%</b></td><td><span class="lean up">TD ↑</span></td></tr><tr class="ph"><th colspan="6">Luther Burden III (#10) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">53.5</td><td class="n">54.1</td><td class="n b">52.5</td>
+    <td class="n">51% → <b>49%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Receptions</td><td class="n">4.5</td><td class="n">4.2</td><td class="n b">4</td>
+    <td class="n">43% → <b>39%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">29%</td><td class="n b">39%</td>
+    <td class="n">29% → <b>39%</b></td><td><span class="lean up">TD ↑</span></td></tr><tr class="ph"><th colspan="6">Rome Odunze (#15) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">40.5</td><td class="n">39.6</td><td class="n b">38.4</td>
+    <td class="n">49% → <b>47%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Receptions</td><td class="n">3.5</td><td class="n">3.2</td><td class="n b">3</td>
+    <td class="n">41% → <b>37%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">26%</td><td class="n b">35%</td>
+    <td class="n">26% → <b>35%</b></td><td><span class="lean up">TD ↑</span></td></tr><tr class="ph"><th colspan="6">Kalif Raymond (#14) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">16.5</td><td class="n">17.1</td><td class="n b">16.5</td>
+    <td class="n">52% → <b>50%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Receptions</td><td class="n">2.5</td><td class="n">2.2</td><td class="n b">2.1</td>
+    <td class="n">40% → <b>36%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">14%</td><td class="n b">19%</td>
+    <td class="n">14% → <b>19%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Colston Loveland (#84) <span class="role">TE</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">44.5</td><td class="n">44.5</td><td class="n b">43.2</td>
+    <td class="n">50% → <b>48%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Receptions</td><td class="n">4.5</td><td class="n">4.3</td><td class="n b">4.1</td>
+    <td class="n">45% → <b>41%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">30%</td><td class="n b">39%</td>
+    <td class="n">30% → <b>39%</b></td><td><span class="lean up">TD ↑</span></td></tr></tbody></table></div>
+  <h4>SEA (dominated)</h4><div class="tw"><table><thead><tr><th>Stat</th><th>Line</th><th>Market</th><th>Script</th><th title="Chance the Over (or TD) hits: market → this script">Over %</th><th>Lean</th></tr></thead>
+  <tbody><tr class="ph"><th colspan="6">Sam Darnold (#14) <span class="role">QB</span></th></tr><tr>
+    <td>Pass yds</td><td class="n">238.5</td><td class="n">241.3</td><td class="n b">270.2</td>
+    <td class="n">52% → <b>68%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Pass TDs</td><td class="n">1.5</td><td class="n">1.7</td><td class="n b">1.2</td>
+    <td class="n">51% → <b>34%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Rush yds</td><td class="n">4.5</td><td class="n">4.6</td><td class="n b">5.3</td>
+    <td class="n">51% → <b>60%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">11%</td><td class="n b">8%</td>
+    <td class="n">11% → <b>8%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Zach Charbonnet (#26) <span class="role">RB</span></th></tr><tr>
+    <td>Rush yds</td><td class="n">27.5</td><td class="n">26.7</td><td class="n b">18.7</td>
+    <td class="n">48% → <b>27%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Receptions</td><td class="n">1.5</td><td class="n">1.4</td><td class="n b">1.7</td>
+    <td class="n">40% → <b>62%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Rec yds</td><td class="n">7.5</td><td class="n">7.4</td><td class="n b">8.8</td>
+    <td class="n">49% → <b>62%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">39%</td><td class="n b">21%</td>
+    <td class="n">39% → <b>21%</b></td><td><span class="lean down">TD ↓</span></td></tr><tr class="ph"><th colspan="6">Jadarian Price (#8) <span class="role">RB</span></th></tr><tr>
+    <td>Rush yds</td><td class="n">29.5</td><td class="n">29.6</td><td class="n b">20.7</td>
+    <td class="n">50% → <b>29%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">16%</td><td class="n b">8%</td>
+    <td class="n">16% → <b>8%</b></td><td><span class="lean down">TD ↓</span></td></tr><tr class="ph"><th colspan="6">Emanuel Wilson (#23) <span class="role">RB</span></th></tr><tr>
+    <td>Rush yds</td><td class="n">21.5</td><td class="n">21.3</td><td class="n b">14.9</td>
+    <td class="n">50% → <b>29%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">20%</td><td class="n b">10%</td>
+    <td class="n">20% → <b>10%</b></td><td><span class="lean down">TD ↓</span></td></tr><tr class="ph"><th colspan="6">Jaxon Smith-Njigba (#11) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">99.5</td><td class="n">103</td><td class="n b">113.3</td>
+    <td class="n">52% → <b>59%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">7.5</td><td class="n">7.2</td><td class="n b">8.1</td>
+    <td class="n">47% → <b>57%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">50%</td><td class="n b">39%</td>
+    <td class="n">50% → <b>39%</b></td><td><span class="lean down">TD ↓</span></td></tr><tr class="ph"><th colspan="6">Cooper Kupp (#10) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">29.5</td><td class="n">29.3</td><td class="n b">32.2</td>
+    <td class="n">50% → <b>56%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">2.5</td><td class="n">2.7</td><td class="n b">3</td>
+    <td class="n">57% → <b>67%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">23%</td><td class="n b">17%</td>
+    <td class="n">23% → <b>17%</b></td><td><span class="lean down">TD ↓</span></td></tr><tr class="ph"><th colspan="6">Tory Horton (#15) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">22.5</td><td class="n">23.2</td><td class="n b">25.5</td>
+    <td class="n">52% → <b>59%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">1.5</td><td class="n">1.7</td><td class="n b">1.9</td>
+    <td class="n">60% → <b>70%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">19%</td><td class="n b">14%</td>
+    <td class="n">19% → <b>14%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">AJ Barner (#88) <span class="role">TE</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">30.5</td><td class="n">30.3</td><td class="n b">33.4</td>
+    <td class="n">50% → <b>56%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">3.5</td><td class="n">3.2</td><td class="n b">3.6</td>
+    <td class="n">41% → <b>52%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">27%</td><td class="n b">20%</td>
+    <td class="n">27% → <b>20%</b></td><td><span class="lean down">TD ↓</span></td></tr></tbody></table></div>
+  <h3>If you're betting this script</h3>
+  <p class="note">Conditional legs: the chance shown is the market's fair chance → the chance if this script plays out. They are only worth it if you think this script is likelier than 17%.</p>
+  <ol class="legs"><li><span class="num">1</span><div><p class="lbl">Chicago Bears ML <span class="price">+156 Novig</span></p>
+    <p class="why">Market 39%; wins by definition in this script.</p></div></li><li><span class="num">2</span><div><p class="lbl">Chicago Bears +3.5 <span class="price">-115 BetMGM</span></p>
+    <p class="why">Market 53%; wins by definition in this script.</p></div></li><li><span class="num">3</span><div><p class="lbl">Over 46.5 <span class="price">+104 Novig ⚑</span></p>
+    <p class="why">Market 50% → 56% in this script.</p></div></li><li><span class="num">4</span><div><p class="lbl">Zach Charbonnet (#26) Receptions Over 1.5 <span class="price">+147 Novig</span></p>
+    <p class="why">Market 40% → 62% in this script.</p></div></li><li><span class="num">5</span><div><p class="lbl">Jadarian Price (#8) Rush yds Under 29.5 <span class="price">-110 DraftKings</span></p>
+    <p class="why">Market 50% → 71% in this script.</p></div></li><li><span class="num">6</span><div><p class="lbl">Emanuel Wilson (#23) Rush yds Under 21.5 <span class="price">-114 DraftKings</span></p>
+    <p class="why">Market 51% → 71% in this script.</p></div></li><li><span class="num">7</span><div><p class="lbl">Zach Charbonnet (#26) Rush yds Under 27.5 <span class="price">-111 DraftKings</span></p>
+    <p class="why">Market 52% → 73% in this script.</p></div></li><li><span class="num">8</span><div><p class="lbl">D'Andre Swift (#4) Anytime TD Yes <span class="price">+100 Novig</span></p>
+    <p class="why">Market 50% → 69% in this script.</p></div></li><li><span class="num">9</span><div><p class="lbl">D'Andre Swift (#4) Rush yds Over 59.5 <span class="price">+100 Novig</span></p>
+    <p class="why">Market 50% → 67% in this script.</p></div></li></ol>
+  </section>
+
+<section id="method"><h3>Method &amp; caveats</h3><ul class="cav"><li>Scenario probabilities come from the market (Pinnacle no-vig ML and spread, margin σ = 13.5), not from the app's models, which trail the closing line.</li><li>Player projections start from each prop's market median and apply rule-of-thumb game-script multipliers (the leading team runs more and passes less; the trailing team throws more). They are not fitted to data, so read them as directional.</li><li>Scenario legs are conditional bets: they only make sense if you believe that script is more likely than the market says. Unconditionally they are no better than the market price, and the measured edges are on the main analysis.</li><li>Seattle's RB projections are the shakiest: Charbonnet and Price return together and the split is unknown until the game starts.</li></ul>
+<h3>Sources</h3><ul class="note"><li><a href="https://www.sportsbettingdime.com/news/nfl/final-bears-vs-seahawks-injury-reports-updates-on-monangai-charbonnet-shaheed-loveland-more/" target="_blank" rel="noopener noreferrer">SportsBettingDime: final injury reports</a></li><li><a href="https://www.nbcchicago.com/news/local/chicago-bears-injury-report-has-updates-on-kyle-monangai-colston-loveland/4010371/" target="_blank" rel="noopener noreferrer">NBC Chicago: Bears injury report</a></li><li><a href="https://www.seahawks.com/news/week-8-injury-report-bears-at-seahawks" target="_blank" rel="noopener noreferrer">Seahawks.com: Week 8 injury report</a></li><li><a href="https://sports.yahoo.com/nfl/article/nfl-monday-night-football-preview-bears-and-seahawks-battle-with-new-trade-acquisitions-on-both-sides-164309964.html" target="_blank" rel="noopener noreferrer">Yahoo Sports: MNF preview (trade acquisitions)</a></li><li><a href="https://www.cbssports.com/nfl/news/is-jadarian-price-playing-seahawks-bears-monday-night-football/" target="_blank" rel="noopener noreferrer">CBS Sports: Jadarian Price status</a></li></ul></section>
+</main></body></html>
