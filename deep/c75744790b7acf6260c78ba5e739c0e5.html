@@ -1,0 +1,322 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JAX @ BAL Deep Dive</title>
+<script>try{const t=localStorage.getItem('ta-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+:root{--bg:#fff;--ink:#111827;--mute:#4b5563;--line:#e5e7eb;--line2:#f9fafb;--card:#fff;--link:#2563eb;--up:#15803d;--down:#b91c1c;--cav:#b45309;--home:#15803d;--away:#c2410c;--close:#6b7280;--barInk:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#030712;--ink:#f3f4f6;--mute:#9ca3af;--line:#1f2937;--line2:#111827;--card:#0b1220;--link:#60a5fa;--up:#4ade80;--down:#f87171;--cav:#fbbf24;--home:#86efac;--away:#fdba74;--close:#374151;--barInk:#030712;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#030712;--ink:#f3f4f6;--mute:#9ca3af;--line:#1f2937;--line2:#111827;--card:#0b1220;--link:#60a5fa;--up:#4ade80;--down:#f87171;--cav:#fbbf24;--home:#86efac;--away:#fdba74;--close:#374151;--barInk:#030712;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;padding:0 16px}
+main{max-width:46rem;margin:0 auto;padding:16px 0 48px}p{margin:0}main>*+*{margin-top:20px}
+a{color:var(--link)}.back{font-size:14px;text-decoration:none}.back:hover{text-decoration:underline}
+h1{font-size:24px;line-height:1.25;margin:4px 0 0}h2{font-size:20px;margin:2px 0 0}h3{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--mute);margin:20px 0 8px}
+h4{font-size:14px;margin:14px 0 6px}.meta{font-size:13px;color:var(--mute)}.note{font-size:12px;color:var(--mute)}.why{font-size:12px;color:var(--mute)}
+nav.jump{scrollbar-width:none;position:sticky;top:0;z-index:2;background:var(--bg);display:flex;gap:6px;overflow-x:auto;padding:8px 0;border-bottom:1px solid var(--line)}
+nav.jump a{flex-shrink:0;font-size:13px;font-weight:500;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+.bar{display:flex;height:28px;border-radius:6px;overflow:hidden;font-size:12px;font-weight:600}.bar>div{display:flex;align-items:center;justify-content:center;color:var(--barInk);min-width:0;white-space:nowrap;overflow:hidden}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:12px;color:var(--mute);margin-top:6px}.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:8px}.stat{border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.stat b{display:block;font-size:18px;font-variant-numeric:tabular-nums}.stat span{font-size:12px;color:var(--mute)}
+.inj{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:12px}.team{border:1px solid var(--line);border-radius:8px;padding:12px}
+.team h3{margin:0 0 8px}.team ul{margin:0;padding-left:18px;font-size:13px}.team li+li{margin-top:4px}.tag{font-size:11px;font-weight:600;padding:1px 6px;border-radius:4px;margin-right:4px}
+.tag.out{background:color-mix(in srgb,var(--down) 18%,transparent);color:var(--down)}.tag.q{background:color-mix(in srgb,var(--cav) 18%,transparent);color:var(--cav)}
+.status{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;border:1px solid var(--cav);color:var(--cav)}.status.final{border-color:var(--up);color:var(--up)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px}table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:6px 8px;text-align:left;border-top:1px solid var(--line);white-space:nowrap}thead th{border-top:0;font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--mute);font-weight:600}
+.ph th{background:var(--line2);font-size:13px;font-weight:600}.role{font-weight:400;color:var(--mute);font-size:11px;margin-left:4px}
+td.n{text-align:right;font-variant-numeric:tabular-nums}td.b{font-weight:600}td.why{white-space:normal}
+.lean{font-size:12px;font-weight:600}.lean.up{color:var(--up)}.lean.down{color:var(--down)}.lean.flat{color:var(--mute)}
+.scen{border:1px solid var(--line);border-left:4px solid var(--tone);border-radius:8px;padding:16px;scroll-margin-top:52px}.scen>p{margin-top:10px}
+.kicker{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--tone)}
+.score{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-top:8px;font-size:26px;font-variant-numeric:tabular-nums}.score b{font-size:15px}.dash{color:var(--mute)}
+.chance{font-size:13px;color:var(--mute);margin-left:4px}.keys{margin:0;padding-left:18px;font-size:14px}.keys li+li{margin-top:4px}
+ol.legs{list-style:none;margin:0;padding:0}ol.legs li{display:flex;gap:8px}ol.legs li+li{margin-top:8px}
+.num{flex-shrink:0;width:20px;height:20px;border-radius:999px;background:var(--tone);color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.lbl{font-weight:500;font-size:14px}.price{font-weight:400;font-size:13px;color:var(--mute)}.cav{font-size:12px;color:var(--cav)}.cav li+li{margin-top:4px}
+#home{--tone:var(--home)}#away{--tone:var(--away)}
+</style></head><body><main>
+<a class="back" href="../">← Today's Analysis</a>
+<header><p class="meta">Deep dive · Thu, Nov 5, 5:15 PM PT · updated Nov 5, 1:17 PM PT</p>
+<h1>Jacksonville Jaguars @ Baltimore Ravens</h1></header>
+<nav class="jump"><a href="#market">Market</a><a href="#inactives">Inactives</a><a href="#matchup">Matchup</a><a href="#home">If BAL dominate</a><a href="#away">If JAX dominate</a><a href="#method">Method</a></nav>
+<p>The market has Jacksonville by about 10 with 39–40 points, so a 10-point win is just the expected result. This page sets the bar for dominating at two touchdowns (14+) and asks what the box score looks like if either team gets there. Each section gives the market's chance of that script, a projected score, how it would happen, and the main player props re-projected under it, then the legs that fit it best.</p>
+
+<section id="market"><h3>Market snapshot</h3>
+<div class="grid">
+  <div class="stat"><b>BAL +10.5</b><span>spread · BAL wins 20% (Pinnacle no-vig)</span></div>
+  <div class="stat"><b>39.5</b><span>total · Over 51% no-vig</span></div>
+  <div class="stat"><b>BAL 14.7 · JAX 25</b><span>implied team points</span></div>
+</div>
+<h3>How the game splits</h3>
+<div class="bar" role="img" aria-label="BAL wins by 14+ 4%, within 13 points 56%, JAX wins by 14+ 41%">
+  <div style="width:3.9%;background:var(--home)">BAL 4%</div>
+  <div style="width:55.50000000000001%;background:var(--close);color:#fff">Within 13: 56%</div>
+  <div style="width:40.6%;background:var(--away)">JAX 41%</div></div>
+<div class="legend"><span><i style="background:var(--home)"></i>BAL by 14+</span><span><i style="background:var(--close)"></i>Within 13 points (either side)</span><span><i style="background:var(--away)"></i>JAX by 14+</span></div>
+<p class="note" style="margin-top:6px">Margin ~ Normal(BAL +-10.3, σ 13.5) fitted to the no-vig ML and spread.</p></section>
+
+<section id="inactives"><h3>Injuries &amp; inactives <span class="status">Projected</span></h3>
+<p class="note">Injury reports through about 1:30 PM PT Nov 5. Official inactives are due ~3:45 PM PT and are not posted yet.</p>
+<div class="inj" style="margin-top:8px"><div class="team"><h3>JAX</h3><ul>
+  <li><span class="tag out">OUT</span><b>DaVon Hamilton (#52) DT</b>: Season-ending quad tear.</li><li><span class="tag out">OUT</span><b>Eric Murray (#29) S</b>: On reserve per the nflverse roster; an SI report on Nov 2 had him questionable.</li>
+  <li><span class="tag q">Q/D</span><b>Bhayshul Tuten (#33) RB</b>: Ankle/foot; no practice all week, game-time decision per Liam Coen. SI cites Ryan O'Halloran: since the start of 2025 no Jaguar has missed all three practice days and been active. Short week, so not a perfect match.</li><li><span class="tag q">Q/D</span><b>Travon Walker (#44) DE</b>: Ribs; limited, reported to be playing through it.</li>
+  <li>Chris Rodriguez Jr. (#24) RB: hand, limited, no designation, expected to play and the expected lead back if Tuten sits.</li><li>Jakobi Meyers (#3) WR: hamstring/ankle, limited but off the final report, cleared per RotoWire.</li><li>Ezra Cleveland (#76) G: limited, no designation.</li></ul></div><div class="team"><h3>BAL</h3><ul>
+  <li><span class="tag out">OUT</span><b>Lamar Jackson (#8) QB</b>: Thumb; reports have him headed to IR.</li><li><span class="tag out">OUT</span><b>Tyler Huntley (#5) QB</b>: Toe; reported season-ending.</li><li><span class="tag out">OUT</span><b>Jaylinn Hawkins (#21) S</b>: Knee.</li><li><span class="tag out">OUT</span><b>Tyler Loop K</b>: IR, groin. Jake Moody (#45) kicks.</li>
+  <li><span class="tag q">Q/D</span><b>Nate Wiggins (#2) CB</b>: Stinger and illness; no practice.</li><li><span class="tag q">Q/D</span><b>Adam Randall (#23) RB</b>: Neck; full practice, minor role.</li>
+  <li>Joe Fagnano (#12) QB starts: undrafted rookie from UConn, first career start, no injury designation.</li><li>Jacoby Brissett: trade reported, won't be active tonight.</li><li>Mark Andrews (#89), Justice Hill (#43), Ronnie Stanley (#79), Roquan Smith (#0) and Trey Hendrickson (#91) all practiced fully.</li></ul></div></div></section>
+
+<section id="matchup"><h3>Matchup by efficiency (this season, play-by-play)</h3>
+<div class="tw"><table><thead><tr><th></th><th class="n">JAX</th><th class="n">BAL</th></tr></thead><tbody>
+<tr><td>Offense EPA/play</td><td class="n b">+0.161</td><td class="n">+0.023</td></tr>
+<tr><td>Pass EPA/play</td><td class="n b">+0.270</td><td class="n">+0.082</td></tr>
+<tr><td>Rush EPA/play</td><td class="n b">+0.040</td><td class="n">-0.043</td></tr>
+<tr><td>Offense red-zone TD%</td><td class="n b">65%</td><td class="n">59%</td></tr>
+<tr><td>Defense EPA/play allowed</td><td class="n b">-0.099</td><td class="n">+0.013</td></tr>
+<tr><td>Pass EPA allowed</td><td class="n b">-0.062</td><td class="n">+0.073</td></tr>
+<tr><td>Rush EPA allowed</td><td class="n b">-0.160</td><td class="n">-0.064</td></tr>
+<tr><td>Red-zone TD% allowed</td><td class="n b">41%</td><td class="n">66%</td></tr>
+</tbody></table></div><p class="note" style="margin-top:6px">Bold marks the better side (lower is better on defense). Efficiency is context for the scripts below, not a betting edge on its own.</p></section>
+
+<section class="scen" id="home" style="--tone:undefined">
+  <div class="scen-head"><p class="kicker">Baltimore Ravens win by 14+</p><h2>If the Ravens dominate</h2>
+    <div class="score"><span><b>BAL</b> 30</span><span class="dash">–</span><span>11 <b>JAX</b></span>
+    <span class="chance">4% chance · avg margin 18.9</span></div></div>
+  <p>The upset path doesn't run through Fagnano's arm. It needs the rain, Baltimore's front and turnovers. Baltimore have been solid against the run (−0.064 EPA per carry), so Trey Hendrickson (#91) and Roquan Smith (#0) can make Jacksonville one-dimensional in poor weather, and a thin backfield helps if Tuten sits. Two takeaways or a special-teams score give a limited offense short fields, Henry finishes (51% of Baltimore's red-zone chances and 9 of their 20 TDs), and he then wears down a lead in the second half. Fagnano may only need a few safe throws to Zay Flowers (#4) and Mark Andrews (#89). Read this as an outlier: see the market's chance above.</p>
+  <h3>What has to happen</h3><ul class="keys"><li>Plus-two turnovers or better, ideally with a defensive or special-teams TD.</li><li>Henry past 20 carries, which only happens if Baltimore lead or stay level into the second half.</li><li>Lawrence pressured into mistakes on wet footing.</li><li>Fagnano avoids the giveaway that hurt at Buffalo.</li></ul>
+  <h3>Projected box score in this script</h3>
+  <p class="note">"Market" is the median implied by each prop line; "Script" is the projection if this scenario happens. TD rows show the chance of scoring.</p>
+  <h4>BAL (dominating)</h4><div class="tw"><table><thead><tr><th>Stat</th><th>Line</th><th>Market</th><th>Script</th><th title="Chance the Over (or TD) hits: market → this script">Over %</th><th>Lean</th></tr></thead>
+  <tbody><tr class="ph"><th colspan="6">Joe Fagnano (#12) <span class="role">QB</span></th></tr><tr>
+    <td>Pass yds</td><td class="n">162.5</td><td class="n">165.1</td><td class="n b">153.6</td>
+    <td class="n">52% → <b>42%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Pass TDs</td><td class="n">0.5</td><td class="n">0.8</td><td class="n b">1.4</td>
+    <td class="n">53% → <b>76%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Rush yds</td><td class="n">7.5</td><td class="n">7.4</td><td class="n b">6.2</td>
+    <td class="n">49% → <b>40%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">7%</td><td class="n b">12%</td>
+    <td class="n">7% → <b>12%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Derrick Henry (#22) <span class="role">RB</span></th></tr><tr>
+    <td>Rush yds</td><td class="n">70.5</td><td class="n">69.4</td><td class="n b">86.7</td>
+    <td class="n">49% → <b>67%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">1.5</td><td class="n">1.4</td><td class="n b">1.2</td>
+    <td class="n">43% → <b>30%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Rec yds</td><td class="n">7.5</td><td class="n">7.2</td><td class="n b">6.2</td>
+    <td class="n">48% → <b>38%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">40%</td><td class="n b">70%</td>
+    <td class="n">40% → <b>70%</b></td><td><span class="lean up">TD ↑</span></td></tr><tr class="ph"><th colspan="6">Justice Hill (#43) <span class="role">RB</span></th></tr><tr>
+    <td>Rush yds</td><td class="n">13.5</td><td class="n">13.2</td><td class="n b">16.5</td>
+    <td class="n">48% → <b>66%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">2.5</td><td class="n">2.6</td><td class="n b">2.2</td>
+    <td class="n">54% → <b>41%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Rec yds</td><td class="n">15.5</td><td class="n">15.8</td><td class="n b">13.5</td>
+    <td class="n">51% → <b>42%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">14%</td><td class="n b">31%</td>
+    <td class="n">14% → <b>31%</b></td><td><span class="lean up">TD ↑</span></td></tr><tr class="ph"><th colspan="6">Zay Flowers (#4) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">49.5</td><td class="n">49.5</td><td class="n b">48</td>
+    <td class="n">50% → <b>48%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Receptions</td><td class="n">4.5</td><td class="n">4.6</td><td class="n b">4.4</td>
+    <td class="n">52% → <b>47%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">20%</td><td class="n b">36%</td>
+    <td class="n">20% → <b>36%</b></td><td><span class="lean up">TD ↑</span></td></tr><tr class="ph"><th colspan="6">Rashod Bateman (#7) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">13.5</td><td class="n">14</td><td class="n b">13.6</td>
+    <td class="n">52% → <b>50%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Receptions</td><td class="n">1.5</td><td class="n">1.4</td><td class="n b">1.3</td>
+    <td class="n">43% → <b>39%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">9%</td><td class="n b">17%</td>
+    <td class="n">9% → <b>17%</b></td><td><span class="lean up">TD ↑</span></td></tr><tr class="ph"><th colspan="6">Ja'Kobi Lane (#6) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">15.5</td><td class="n">15.8</td><td class="n b">15.4</td>
+    <td class="n">51% → <b>49%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Receptions</td><td class="n">1.5</td><td class="n">1.5</td><td class="n b">1.4</td>
+    <td class="n">51% → <b>46%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">11%</td><td class="n b">20%</td>
+    <td class="n">11% → <b>20%</b></td><td><span class="lean up">TD ↑</span></td></tr><tr class="ph"><th colspan="6">Mark Andrews (#89) <span class="role">TE</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">18.5</td><td class="n">19</td><td class="n b">18.5</td>
+    <td class="n">52% → <b>50%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Receptions</td><td class="n">2.5</td><td class="n">2.6</td><td class="n b">2.5</td>
+    <td class="n">54% → <b>50%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">15%</td><td class="n b">27%</td>
+    <td class="n">15% → <b>27%</b></td><td><span class="lean up">TD ↑</span></td></tr></tbody></table></div>
+  <h4>JAX (dominated)</h4><div class="tw"><table><thead><tr><th>Stat</th><th>Line</th><th>Market</th><th>Script</th><th title="Chance the Over (or TD) hits: market → this script">Over %</th><th>Lean</th></tr></thead>
+  <tbody><tr class="ph"><th colspan="6">Trevor Lawrence (#16) <span class="role">QB</span></th></tr><tr>
+    <td>Pass yds</td><td class="n">232.5</td><td class="n">234</td><td class="n b">262.1</td>
+    <td class="n">51% → <b>67%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Pass TDs</td><td class="n">1.5</td><td class="n">1.9</td><td class="n b">0.9</td>
+    <td class="n">56% → <b>24%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Rush yds</td><td class="n">12.5</td><td class="n">12.6</td><td class="n b">14.5</td>
+    <td class="n">51% → <b>59%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">19%</td><td class="n b">10%</td>
+    <td class="n">19% → <b>10%</b></td><td><span class="lean down">TD ↓</span></td></tr><tr class="ph"><th colspan="6">Chris Rodriguez Jr. (#24) <span class="role">RB</span></th></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">46%</td><td class="n b">19%</td>
+    <td class="n">46% → <b>19%</b></td><td><span class="lean down">TD ↓</span></td></tr><tr class="ph"><th colspan="6">Bhayshul Tuten (#33) <span class="role">RB</span></th></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">46%</td><td class="n b">19%</td>
+    <td class="n">46% → <b>19%</b></td><td><span class="lean down">TD ↓</span></td></tr><tr class="ph"><th colspan="6">Parker Washington (#11) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">62.5</td><td class="n">62.1</td><td class="n b">68.4</td>
+    <td class="n">50% → <b>56%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">4.5</td><td class="n">4.1</td><td class="n b">4.6</td>
+    <td class="n">42% → <b>53%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">39%</td><td class="n b">22%</td>
+    <td class="n">39% → <b>22%</b></td><td><span class="lean down">TD ↓</span></td></tr><tr class="ph"><th colspan="6">Jakobi Meyers (#3) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">39.5</td><td class="n">38.9</td><td class="n b">42.8</td>
+    <td class="n">49% → <b>56%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">3.5</td><td class="n">3.2</td><td class="n b">3.5</td>
+    <td class="n">41% → <b>51%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">24%</td><td class="n b">13%</td>
+    <td class="n">24% → <b>13%</b></td><td><span class="lean down">TD ↓</span></td></tr><tr class="ph"><th colspan="6">Brian Thomas Jr (#7) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">15.5</td><td class="n">15.7</td><td class="n b">17.3</td>
+    <td class="n">51% → <b>58%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">1.5</td><td class="n">1.4</td><td class="n b">1.6</td>
+    <td class="n">44% → <b>55%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">14%</td><td class="n b">7%</td>
+    <td class="n">14% → <b>7%</b></td><td><span class="lean down">TD ↓</span></td></tr><tr class="ph"><th colspan="6">Travis Hunter (#12) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">9.5</td><td class="n">9.3</td><td class="n b">10.2</td>
+    <td class="n">49% → <b>55%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">1.5</td><td class="n">1.3</td><td class="n b">1.4</td>
+    <td class="n">34% → <b>44%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">11%</td><td class="n b">6%</td>
+    <td class="n">11% → <b>6%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Josh Cameron (#19) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">10.5</td><td class="n">10.7</td><td class="n b">11.8</td>
+    <td class="n">51% → <b>58%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">1.5</td><td class="n">1.3</td><td class="n b">1.5</td>
+    <td class="n">38% → <b>48%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">12%</td><td class="n b">6%</td>
+    <td class="n">12% → <b>6%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Brenton Strange (#85) <span class="role">TE</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">32.5</td><td class="n">33</td><td class="n b">36.3</td>
+    <td class="n">51% → <b>58%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">3.5</td><td class="n">3.4</td><td class="n b">3.8</td>
+    <td class="n">48% → <b>59%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">26%</td><td class="n b">14%</td>
+    <td class="n">26% → <b>14%</b></td><td><span class="lean down">TD ↓</span></td></tr></tbody></table></div>
+  <h3>If you're betting this script</h3>
+  <p class="note">Conditional legs: the chance shown is the market's fair chance → the chance if this script plays out. They are only worth it if you think this script is likelier than 4%.</p>
+  <ol class="legs"><li><span class="num">1</span><div><p class="lbl">Baltimore Ravens ML <span class="price">+410 FanDuel</span></p>
+    <p class="why">Market 20%; wins by definition in this script.</p></div></li><li><span class="num">2</span><div><p class="lbl">Over 39.5 <span class="price">-109 Novig</span></p>
+    <p class="why">Market 51% → 57% in this script.</p></div></li><li><span class="num">3</span><div><p class="lbl">Trevor Lawrence (#16) Pass TDs Under 1.5 <span class="price">+125 Novig</span></p>
+    <p class="why">Market 44% → 76% in this script.</p></div></li><li><span class="num">4</span><div><p class="lbl">Derrick Henry (#22) Anytime TD Yes <span class="price">+150 Novig</span></p>
+    <p class="why">Market 40% → 70% in this script.</p></div></li><li><span class="num">5</span><div><p class="lbl">Bhayshul Tuten (#33) Anytime TD No <span class="price">-122 Novig</span></p>
+    <p class="why">Market 54% → 81% in this script.</p></div></li><li><span class="num">6</span><div><p class="lbl">Chris Rodriguez Jr. (#24) Anytime TD No <span class="price">-120 Novig</span></p>
+    <p class="why">Market 54% → 81% in this script.</p></div></li><li><span class="num">7</span><div><p class="lbl">Joe Fagnano (#12) Pass TDs Over 0.5 <span class="price">-118 Novig</span></p>
+    <p class="why">Market 53% → 76% in this script.</p></div></li><li><span class="num">8</span><div><p class="lbl">Derrick Henry (#22) Rush yds Over 70.5 <span class="price">-102 Novig</span></p>
+    <p class="why">Market 49% → 67% in this script.</p></div></li></ol>
+  </section>
+<section class="scen" id="away" style="--tone:undefined">
+  <div class="scen-head"><p class="kicker">Jacksonville Jaguars win by 14+</p><h2>If the Jaguars dominate</h2>
+    <div class="score"><span><b>JAX</b> 32</span><span class="dash">–</span><span>9 <b>BAL</b></span>
+    <span class="chance">41% chance · avg margin 23.2</span></div></div>
+  <p>This is the market's main script carried a little further. Jacksonville's defense (−0.099 EPA/play, −0.160 against the run) stops Derrick Henry (#22) on early downs, which leaves Joe Fagnano (#12) in third-and-long. He went 10 of 21 for 91 yards and an interception in his only game, so a turnover or two sets up short fields. Trevor Lawrence (#16) runs the most efficient unit in this matchup (+0.270 EPA per dropback) against a secondary missing Jaylinn Hawkins (#21) and maybe Nate Wiggins (#2), gets ahead early, and then Chris Rodriguez Jr. (#24) or Bhayshul Tuten (#33) runs out the clock in the rain. Baltimore's yardage arrives late, against soft coverage.</p>
+  <h3>What has to happen</h3><ul class="keys"><li>Henry under 3.5 yards a carry in the first half, so Baltimore have to put the game on Fagnano.</li><li>Jacksonville win the turnover count, or Baltimore lose a possession in the rain.</li><li>Lawrence finishes in the red zone: Jacksonville score TDs on 65% of trips and Baltimore allow 66%.</li><li>Jacksonville lead by two scores at halftime, the point at which the run-heavy clock game starts.</li></ul>
+  <h3>Projected box score in this script</h3>
+  <p class="note">"Market" is the median implied by each prop line; "Script" is the projection if this scenario happens. TD rows show the chance of scoring.</p>
+  <h4>JAX (dominating)</h4><div class="tw"><table><thead><tr><th>Stat</th><th>Line</th><th>Market</th><th>Script</th><th title="Chance the Over (or TD) hits: market → this script">Over %</th><th>Lean</th></tr></thead>
+  <tbody><tr class="ph"><th colspan="6">Trevor Lawrence (#16) <span class="role">QB</span></th></tr><tr>
+    <td>Pass yds</td><td class="n">232.5</td><td class="n">234</td><td class="n b">217.6</td>
+    <td class="n">51% → <b>41%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Pass TDs</td><td class="n">1.5</td><td class="n">1.9</td><td class="n b">2.2</td>
+    <td class="n">56% → <b>64%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Rush yds</td><td class="n">12.5</td><td class="n">12.6</td><td class="n b">10.7</td>
+    <td class="n">51% → <b>42%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">19%</td><td class="n b">22%</td>
+    <td class="n">19% → <b>22%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Chris Rodriguez Jr. (#24) <span class="role">RB</span></th></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">46%</td><td class="n b">60%</td>
+    <td class="n">46% → <b>60%</b></td><td><span class="lean up">TD ↑</span></td></tr><tr class="ph"><th colspan="6">Bhayshul Tuten (#33) <span class="role">RB</span></th></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">46%</td><td class="n b">60%</td>
+    <td class="n">46% → <b>60%</b></td><td><span class="lean up">TD ↑</span></td></tr><tr class="ph"><th colspan="6">Parker Washington (#11) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">62.5</td><td class="n">62.1</td><td class="n b">60.3</td>
+    <td class="n">50% → <b>48%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Receptions</td><td class="n">4.5</td><td class="n">4.1</td><td class="n b">3.9</td>
+    <td class="n">42% → <b>38%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">39%</td><td class="n b">45%</td>
+    <td class="n">39% → <b>45%</b></td><td><span class="lean up">TD ↑</span></td></tr><tr class="ph"><th colspan="6">Jakobi Meyers (#3) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">39.5</td><td class="n">38.9</td><td class="n b">37.7</td>
+    <td class="n">49% → <b>47%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Receptions</td><td class="n">3.5</td><td class="n">3.2</td><td class="n b">3</td>
+    <td class="n">41% → <b>36%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">24%</td><td class="n b">29%</td>
+    <td class="n">24% → <b>29%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Brian Thomas Jr (#7) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">15.5</td><td class="n">15.7</td><td class="n b">15.3</td>
+    <td class="n">51% → <b>49%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Receptions</td><td class="n">1.5</td><td class="n">1.4</td><td class="n b">1.3</td>
+    <td class="n">44% → <b>40%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">14%</td><td class="n b">17%</td>
+    <td class="n">14% → <b>17%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Travis Hunter (#12) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">9.5</td><td class="n">9.3</td><td class="n b">9</td>
+    <td class="n">49% → <b>47%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Receptions</td><td class="n">1.5</td><td class="n">1.3</td><td class="n b">1.2</td>
+    <td class="n">34% → <b>30%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">11%</td><td class="n b">13%</td>
+    <td class="n">11% → <b>13%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Josh Cameron (#19) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">10.5</td><td class="n">10.7</td><td class="n b">10.4</td>
+    <td class="n">51% → <b>49%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Receptions</td><td class="n">1.5</td><td class="n">1.3</td><td class="n b">1.3</td>
+    <td class="n">38% → <b>34%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">12%</td><td class="n b">14%</td>
+    <td class="n">12% → <b>14%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Brenton Strange (#85) <span class="role">TE</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">32.5</td><td class="n">33</td><td class="n b">32</td>
+    <td class="n">51% → <b>49%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Receptions</td><td class="n">3.5</td><td class="n">3.4</td><td class="n b">3.3</td>
+    <td class="n">48% → <b>44%</b></td><td><span class="lean flat">—</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">26%</td><td class="n b">31%</td>
+    <td class="n">26% → <b>31%</b></td><td><span class="lean flat">—</span></td></tr></tbody></table></div>
+  <h4>BAL (dominated)</h4><div class="tw"><table><thead><tr><th>Stat</th><th>Line</th><th>Market</th><th>Script</th><th title="Chance the Over (or TD) hits: market → this script">Over %</th><th>Lean</th></tr></thead>
+  <tbody><tr class="ph"><th colspan="6">Joe Fagnano (#12) <span class="role">QB</span></th></tr><tr>
+    <td>Pass yds</td><td class="n">162.5</td><td class="n">165.1</td><td class="n b">185</td>
+    <td class="n">52% → <b>69%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Pass TDs</td><td class="n">0.5</td><td class="n">0.8</td><td class="n b">0.5</td>
+    <td class="n">53% → <b>41%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Rush yds</td><td class="n">7.5</td><td class="n">7.4</td><td class="n b">8.5</td>
+    <td class="n">49% → <b>57%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">7%</td><td class="n b">5%</td>
+    <td class="n">7% → <b>5%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Derrick Henry (#22) <span class="role">RB</span></th></tr><tr>
+    <td>Rush yds</td><td class="n">70.5</td><td class="n">69.4</td><td class="n b">48.6</td>
+    <td class="n">49% → <b>28%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Receptions</td><td class="n">1.5</td><td class="n">1.4</td><td class="n b">1.7</td>
+    <td class="n">43% → <b>65%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Rec yds</td><td class="n">7.5</td><td class="n">7.2</td><td class="n b">8.7</td>
+    <td class="n">48% → <b>61%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">40%</td><td class="n b">21%</td>
+    <td class="n">40% → <b>21%</b></td><td><span class="lean down">TD ↓</span></td></tr><tr class="ph"><th colspan="6">Justice Hill (#43) <span class="role">RB</span></th></tr><tr>
+    <td>Rush yds</td><td class="n">13.5</td><td class="n">13.2</td><td class="n b">9.2</td>
+    <td class="n">48% → <b>28%</b></td><td><span class="lean down">Under</span></td></tr><tr>
+    <td>Receptions</td><td class="n">2.5</td><td class="n">2.6</td><td class="n b">3.3</td>
+    <td class="n">54% → <b>75%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Rec yds</td><td class="n">15.5</td><td class="n">15.8</td><td class="n b">19</td>
+    <td class="n">51% → <b>64%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">14%</td><td class="n b">7%</td>
+    <td class="n">14% → <b>7%</b></td><td><span class="lean down">TD ↓</span></td></tr><tr class="ph"><th colspan="6">Zay Flowers (#4) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">49.5</td><td class="n">49.5</td><td class="n b">54.5</td>
+    <td class="n">50% → <b>57%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">4.5</td><td class="n">4.6</td><td class="n b">5.1</td>
+    <td class="n">52% → <b>62%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">20%</td><td class="n b">15%</td>
+    <td class="n">20% → <b>15%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Rashod Bateman (#7) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">13.5</td><td class="n">14</td><td class="n b">15.4</td>
+    <td class="n">52% → <b>59%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">1.5</td><td class="n">1.4</td><td class="n b">1.6</td>
+    <td class="n">43% → <b>53%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">9%</td><td class="n b">6%</td>
+    <td class="n">9% → <b>6%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Ja'Kobi Lane (#6) <span class="role">WR</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">15.5</td><td class="n">15.8</td><td class="n b">17.4</td>
+    <td class="n">51% → <b>58%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">1.5</td><td class="n">1.5</td><td class="n b">1.7</td>
+    <td class="n">51% → <b>61%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">11%</td><td class="n b">8%</td>
+    <td class="n">11% → <b>8%</b></td><td><span class="lean flat">—</span></td></tr><tr class="ph"><th colspan="6">Mark Andrews (#89) <span class="role">TE</span></th></tr><tr>
+    <td>Rec yds</td><td class="n">18.5</td><td class="n">19</td><td class="n b">21</td>
+    <td class="n">52% → <b>59%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Receptions</td><td class="n">2.5</td><td class="n">2.6</td><td class="n b">2.9</td>
+    <td class="n">54% → <b>65%</b></td><td><span class="lean up">Over</span></td></tr><tr>
+    <td>Anytime TD</td><td class="n">—</td><td class="n">15%</td><td class="n b">11%</td>
+    <td class="n">15% → <b>11%</b></td><td><span class="lean flat">—</span></td></tr></tbody></table></div>
+  <h3>If you're betting this script</h3>
+  <p class="note">Conditional legs: the chance shown is the market's fair chance → the chance if this script plays out. They are only worth it if you think this script is likelier than 41%.</p>
+  <ol class="legs"><li><span class="num">1</span><div><p class="lbl">Jacksonville Jaguars ML <span class="price">-417 Novig</span></p>
+    <p class="why">Market 80%; wins by definition in this script.</p></div></li><li><span class="num">2</span><div><p class="lbl">Over 39.5 <span class="price">-109 Novig</span></p>
+    <p class="why">Market 51% → 57% in this script.</p></div></li><li><span class="num">3</span><div><p class="lbl">Derrick Henry (#22) Receptions Over 1.5 <span class="price">+130 DraftKings</span></p>
+    <p class="why">Market 43% → 65% in this script.</p></div></li><li><span class="num">4</span><div><p class="lbl">Derrick Henry (#22) Rush yds Under 70.5 <span class="price">-112 Novig</span></p>
+    <p class="why">Market 51% → 72% in this script.</p></div></li><li><span class="num">5</span><div><p class="lbl">Justice Hill (#43) Rush yds Under 13.5 <span class="price">-111 Novig</span></p>
+    <p class="why">Market 52% → 72% in this script.</p></div></li><li><span class="num">6</span><div><p class="lbl">Justice Hill (#43) Receptions Over 2.5 <span class="price">-122 FanDuel</span></p>
+    <p class="why">Market 54% → 75% in this script.</p></div></li><li><span class="num">7</span><div><p class="lbl">Joe Fagnano (#12) Pass yds Over 162.5 <span class="price">-114 FanDuel</span></p>
+    <p class="why">Market 52% → 69% in this script.</p></div></li><li><span class="num">8</span><div><p class="lbl">Chris Rodriguez Jr. (#24) Anytime TD Yes <span class="price">+115 Novig</span></p>
+    <p class="why">Market 46% → 60% in this script.</p></div></li></ol>
+  </section>
+
+<section id="method"><h3>Method &amp; caveats</h3><ul class="cav"><li>Inactives here are projected. Tuten decides who the Jacksonville RB rows apply to: if he sits, move his work to Rodriguez, and most books have no main rush line for either back yet.</li><li>Scenario probabilities come from the market (Pinnacle no-vig ML and spread, margin σ = 13.5), not the app's models, which trail the closing line.</li><li>Player projections start from each prop's market median and apply rule-of-thumb game-script multipliers (the leader runs more, the trailer throws more). They are not fitted to data, so read them as directional. They also don't know about the rain.</li><li>Scenario legs are conditional bets: they only make sense if you think that script is likelier than the market says. Unconditionally they are no better than the market price, and the measured edges are on the main analysis.</li><li>Both blowout scripts project about 42 points, a little over the 39.5 total, because the rule of thumb adds ~2 points to blowouts. The Under pick on the main analysis is a price edge for the whole range of outcomes, so don't pair it with a two-touchdown Jacksonville bet without noticing that tension.</li><li>Fagnano's numbers rest on one game, and the Baltimore usage rates mostly come from games with Jackson or Huntley.</li></ul>
+<h3>Sources</h3><ul class="note"><li><a href="https://sports.yahoo.com/articles/jaguars-vs-ravens-odds-injuries-201154769.html" target="_blank" rel="noopener noreferrer">Yahoo / Florida Times-Union: odds and injuries</a></li><li><a href="https://www.cbssports.com/nfl/news/ravens-vs-jaguars-how-to-watch-odds-spread-prediction/" target="_blank" rel="noopener noreferrer">CBS Sports: how to watch, QB and injury notes</a></li><li><a href="https://www.baltimoreravens.com/news/five-things-to-know-jacksonville-jaguars-ravens-week-9" target="_blank" rel="noopener noreferrer">Ravens.com: Five things to know about the Jaguars</a></li><li><a href="https://www.si.com/betting/bhayshul-tuten-injury-update-betting-impact-for-jaguars-vs-ravens-in-nfl-week-9-2026" target="_blank" rel="noopener noreferrer">SI: Tuten injury update</a></li><li><a href="https://si.com/nfl/jaguars/onsi/jacksonville-ravens-injury-report-bhayshul-tuten-s-injury-could-mean-larger-role-for-1-veteran" target="_blank" rel="noopener noreferrer">SI: Tuten injury could mean a larger role for Rodriguez</a></li><li><a href="https://www.rotowire.com/football/headlines/jakobi-meyers-news-good-to-go-for-tnf-645909" target="_blank" rel="noopener noreferrer">RotoWire: Jakobi Meyers good to go</a></li><li><a href="https://forecast.weather.gov/MapClick.php?lat=39.278&amp;lon=-76.623" target="_blank" rel="noopener noreferrer">NWS hourly forecast</a></li></ul></section>
+</main></body></html>
