@@ -57,7 +57,7 @@ ol{list-style:none;margin:0;padding:0}ol>li{display:flex;gap:8px}ol>li+li{margin
 li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0 0 0 2px var(--wInk)}
 
 .props{border-top:1px solid var(--line2);padding-top:12px}.load{border:0;border-radius:999px;padding:4px 10px;font:500 12px/1.5 inherit;background:var(--line2);color:var(--mute);cursor:pointer}.load:hover{background:var(--line)}
-.sec{font-size:14px;font-weight:500;margin-bottom:8px}.pm{margin-top:8px}.pm>summary{display:block;padding:0;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.025em;color:var(--faint)}
+.sec{font-size:14px;font-weight:500;margin-bottom:8px}.pm{margin-top:8px}.pl{list-style:none;margin:6px 0 0;padding:0}.pl li{padding:6px 0;font-size:14px;display:flex;flex-wrap:wrap;gap:2px 8px;align-items:baseline}.pl li+li{border-top:1px solid var(--line2)}.pl .side{font-size:11px;font-weight:700;letter-spacing:.03em}.pl .side.u{color:#dc2626}.pl .side.o{color:#059669}.pm>summary{display:block;padding:0;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.025em;color:var(--faint)}
 .pm ul{list-style:none;margin:4px 0 0;padding:0}.pm li{padding:8px 0;font-size:14px}.pm li+li{border-top:1px solid var(--line2)}
 .pr{display:flex;justify-content:space-between;align-items:baseline;gap:12px}.pr.sub{margin-top:2px;font-size:12px;color:var(--faint);flex-wrap:wrap}.pr.sub b{color:var(--ink);font-weight:500}
 .bk{color:var(--faint)}.team{margin-left:4px;font-size:12px;font-weight:400;color:var(--faint)}.over{font-weight:500;color:var(--flag)}.under{font-weight:500;color:var(--under)}
@@ -82,7 +82,6 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
 <header><h1 id="title">Today&apos;s Analysis</h1><div class="hd"><span>Odds 7:42 AM PT</span><button type="button" class="theme" id="theme">◐ Auto</button></div></header>
 <a href="nfl-lowest-legs.html" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px;margin:10px 0;border:1px solid var(--line);border-radius:10px;color:var(--ink);text-decoration:none;font-size:14px"><span><b>NFL lowest legs</b> · full season, plus Thursday's WSH @ NYG preliminary legs</span><span aria-hidden="true">›</span></a>
 <a href="nba-lowest-legs.html" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px;margin:10px 0;border:1px solid var(--line);border-radius:10px;color:var(--ink);text-decoration:none;font-size:14px"><span><b>NBA lowest legs</b> · season results, plus tonight's 6 games</span><span aria-hidden="true">›</span></a>
-
 <nav class="tabs"><button data-tab="home">Today</button><button data-tab="nfl">NFL <span style="opacity:.7;font-weight:400">14</span></button><button data-tab="soccer">Soccer <span style="opacity:.7;font-weight:400">34</span></button><button data-tab="cfb">College Football <span style="opacity:.7;font-weight:400">64</span></button><button data-tab="nhl">NHL <span style="opacity:.7;font-weight:400">10</span></button><button data-tab="nba">NBA <span style="opacity:.7;font-weight:400">12</span></button></nav>
 <nav class="subs" hidden><button data-league="uefa-nations-league">Nations League (34)</button></nav>
 <div id="backbar" hidden><button type="button" class="back" id="back">← Today</button></div>
@@ -228,6 +227,14 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">⚑ Under plus one line-shopping prop. Statuses are from the NBA 8 AM ET injury report (some teams had not submitted yet); re-check the 1:30 PM PT report before tip. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  <section class="ta polyl"><div class="ta-head"><h3>Polymarket legs</h3></div><p class="why">IND −2.5: should be close, so starters play full minutes. These are Overs on starters.</p>
+  <ul class="pl"><li><span class="side o">▲ Over</span> <b>Andrew Nembhard 10+ points</b>
+    <span class="pct">87¢ · 33 min/game · books’ line 16.5 (7 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Kyshawn George 15+ pts+reb+ast</b>
+    <span class="pct">85¢ · 33 min/game · books’ line 24.5 (10 to spare)</span></li><li><span class="side o">▲ Over</span> <b>AJ Dybantsa 4+ rebounds</b>
+    <span class="pct">83¢ · 32 min/game · books’ line 5.5 (2 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Anthony Davis 15+ points</b>
+    <span class="pct">88¢ · 33 min/game · books’ line 22.5 (8 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Trae Young 6+ assists</b>
+    <span class="pct">88¢ · 36 min/game · books’ line 8.5 (3 to spare)</span></li></ul>
+  <p class="cav">Polymarket prices as of 11:27 AM PT. One leg per player; check the injury report before tip-off.</p></section>
   <div class="best"><b>Best price: </b>Indiana Pacers -139 Novig · Washington Wizards +135 Novig · Indiana Pacers -3.5 -105 BetMGM · Washington Wizards +3.5 -114 DraftKings · Over 227.5 -108 FanDuel · Under 227.5 +104 Novig ⚑</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button><div hidden><p class="sec">Player props <span class="pct">(DraftKings lines · loaded 7:50 AM PT)</span></p>
     <p class="why">Model projections aren&apos;t validated against results yet; edges are informational, not bets. ⚑ marks a price that beats the other books.</p><details class="pm" open><summary>Points</summary><ul><li>
@@ -658,6 +665,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">The ⚑ Sabres ML is the measured edge; nothing else here clears the bar. Goalies are ESPN/Daily Faceoff projections, not yet confirmed; the model and these prices assume the projected starters. Confirm about an hour before puck drop. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  
   <div class="best"><b>Best price: </b>Buffalo Sabres +125 Novig ⚑ · Tampa Bay Lightning -127 Novig · Buffalo Sabres +1.5 -208 BetMGM · Tampa Bay Lightning -1.5 +199 Novig · Over 6.5 -111 Novig · Under 6.5 +106 Novig</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button><div hidden><p class="sec">Player props <span class="pct">(DraftKings lines · loaded 7:50 AM PT)</span></p>
     <p class="why">Model projections aren&apos;t validated against results yet; edges are informational, not bets. ⚑ marks a price that beats the other books.</p><details class="pm" open><summary>Shots on goal</summary><ul><li>
@@ -929,6 +937,14 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">Two ⚑ prices and one line-shopping prop. Statuses are from the NBA 8 AM ET injury report (some teams had not submitted yet); re-check the 1:30 PM PT report before tip. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  <section class="ta polyl"><div class="ta-head"><h3>Polymarket legs</h3></div><p class="why">BOS −5.5: should be close, so starters play full minutes. These are Overs on starters.</p>
+  <ul class="pl"><li><span class="side o">▲ Over</span> <b>Ja'Kobe Walter 2+ rebounds</b>
+    <span class="pct">91¢ · 30 min/game · books’ line 4.5 (3 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Jayson Tatum 4+ assists</b>
+    <span class="pct">87¢ · 34 min/game · books’ line 6.5 (3 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Derrick White 15+ pts+reb+ast</b>
+    <span class="pct">86¢ · 29 min/game · books’ line 21.5 (7 to spare)</span></li><li><span class="side o">▲ Over</span> <b>RJ Barrett 15+ points</b>
+    <span class="pct">87¢ · 33 min/game · books’ line 21.5 (7 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Payton Pritchard 15+ pts+reb+ast</b>
+    <span class="pct">88¢ · 27 min/game · books’ line 19.5 (5 to spare)</span></li></ul>
+  <p class="cav">Polymarket prices as of 11:27 AM PT. One leg per player; check the injury report before tip-off.</p></section>
   <div class="best"><b>Best price: </b>Boston Celtics -227 Novig · Toronto Raptors +223 Novig ⚑ · Boston Celtics -6.5 +104 Novig · Toronto Raptors +6.5 -109 Novig · Over 216.5 +104 Novig ⚑ · Under 216.5 -106 Novig</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button><div hidden><p class="sec">Player props <span class="pct">(DraftKings lines · loaded 7:50 AM PT)</span></p>
     <p class="why">Model projections aren&apos;t validated against results yet; edges are informational, not bets. ⚑ marks a price that beats the other books.</p><details class="pm" open><summary>Points</summary><ul><li>
@@ -1365,6 +1381,14 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">Line shopping only; no ⚑. Statuses are from the NBA 8 AM ET injury report (some teams had not submitted yet); re-check the 1:30 PM PT report before tip. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  <section class="ta polyl"><div class="ta-head"><h3>Polymarket legs</h3></div><p class="why">NY −3.5: should be close, so starters play full minutes. These are Overs on starters.</p>
+  <ul class="pl"><li><span class="side o">▲ Over</span> <b>OG Anunoby 1+ threes</b>
+    <span class="pct">89¢ · 33 min/game · books’ line 2.5 (2 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Peyton Watson 1+ threes</b>
+    <span class="pct">78¢ · 28 min/game · books’ line 1.5 (1 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Evan Mobley 2+ assists</b>
+    <span class="pct">85¢ · 32 min/game · books’ line 3.5 (2 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Jalen Brunson 2+ rebounds</b>
+    <span class="pct">84¢ · 34 min/game · books’ line 3.5 (2 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Donovan Mitchell 15+ points</b>
+    <span class="pct">89¢ · 33 min/game · books’ line 24.5 (10 to spare)</span></li></ul>
+  <p class="cav">Polymarket prices as of 11:27 AM PT. One leg per player; check the injury report before tip-off.</p></section>
   <div class="best"><b>Best price: </b>Cleveland Cavaliers +170 Novig · New York Knicks -179 DraftKings · Cleveland Cavaliers +4.5 -102 Novig · New York Knicks -4.5 -102 Novig · Over 222.5 -106 Novig · Under 222.5 +102 Novig</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button><div hidden><p class="sec">Player props <span class="pct">(DraftKings lines · loaded 7:50 AM PT)</span></p>
     <p class="why">Model projections aren&apos;t validated against results yet; edges are informational, not bets. ⚑ marks a price that beats the other books.</p><details class="pm" open><summary>Points</summary><ul><li>
@@ -1771,6 +1795,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">⚑ longshot only. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  
   <div class="best"><b>Best price: </b>Toledo Rockets -500 Novig · UMass Minutemen +488 Novig ⚑ · Toledo Rockets -14 -110 BetMGM · UMass Minutemen +14 -108 BetMGM · Over 51.5 -104 Novig · Under 51.5 +102 Novig</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button>
   <div hidden><p class="sec">Player props <span class="pct">(best price across books, snapshot 7:44 AM PT)</span></p><details class="pm" open><summary>Anytime TD <span class="pct">(16)</span></summary><ul><li><div class="pr"><span class="lbl">CJ Miller</span><span>-233 <span class="bk">FanDuel</span></span></div>
@@ -1818,6 +1843,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">Two ⚑ prices and one line-shopping spread. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  
   <div class="best"><b>Best price: </b>Central Michigan Chippewas -833 Novig · Sacramento State Hornets +809 Novig ⚑ · Central Michigan Chippewas -17 -110 Bovada · Sacramento State Hornets +17 -108 Caesars · Over 43.5 +104 Novig ⚑ · Under 43.5 -109 Novig</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button>
   <div hidden><p class="sec">Player props <span class="pct">(best price across books, snapshot 7:44 AM PT)</span></p><details class="pm" open><summary>Anytime TD <span class="pct">(29)</span></summary><ul><li><div class="pr"><span class="lbl">Nick Woodford</span><span>-115 <span class="bk">FanDuel</span></span></div>
@@ -1884,6 +1910,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">Line shopping on both; small edges. Recheck the Buffalo QB situation before kickoff. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  
   <div class="best"><b>Best price: </b>Ball State Cardinals +106 Caesars · Buffalo Bulls -106 Novig · Ball State Cardinals +1.5 -105 Hard Rock Bet · Buffalo Bulls -1.5 +104 Novig · Over 51.5 +102 Novig · Under 51.5 -106 Novig</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button>
   <div hidden><p class="sec">Player props <span class="pct">(best price across books, snapshot 7:44 AM PT)</span></p><details class="pm" open><summary>Anytime TD <span class="pct">(28)</span></summary><ul><li><div class="pr"><span class="lbl">Messiah Burch</span><span>-125 <span class="bk">FanDuel</span></span></div>
@@ -1976,6 +2003,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">The ⚑ puck line is the only measured edge. Goalies are ESPN/Daily Faceoff projections, not yet confirmed; the model and these prices assume the projected starters. Confirm about an hour before puck drop. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  
   <div class="best"><b>Best price: </b>Calgary Flames +135 Novig · New York Rangers -139 Novig · Calgary Flames +1.5 -200 BetMGM · New York Rangers -1.5 +194 Novig ⚑ · Over 5.5 -118 Novig · Under 5.5 +113 Novig</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button><div hidden><p class="sec">Player props <span class="pct">(DraftKings lines · loaded 7:50 AM PT)</span></p>
     <p class="why">Model projections aren&apos;t validated against results yet; edges are informational, not bets. ⚑ marks a price that beats the other books.</p><details class="pm" open><summary>Shots on goal</summary><ul><li>
@@ -2247,6 +2275,14 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">Prop line shopping only. Statuses are from the NBA 8 AM ET injury report (some teams had not submitted yet); re-check the 1:30 PM PT report before tip. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  <section class="ta polyl"><div class="ta-head"><h3>Polymarket legs</h3></div><p class="why">DEN −3.5: should be close, so starters play full minutes. These are Overs on starters.</p>
+  <ul class="pl"><li><span class="side o">▲ Over</span> <b>Cameron Boozer 1+ threes</b>
+    <span class="pct">86¢ · 32 min/game · books’ line 1.5 (1 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Cameron Johnson 1+ threes</b>
+    <span class="pct">88¢ · 28 min/game · books’ line 1.5 (1 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Cedric Coward 1+ threes</b>
+    <span class="pct">84¢ · 28 min/game · books’ line 1.5 (1 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Jaylen Wells 1+ threes</b>
+    <span class="pct">86¢ · 27 min/game · books’ line 1.5 (1 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Christian Braun 5+ points</b>
+    <span class="pct">92¢ · 34 min/game · books’ line 11.5 (7 to spare)</span></li></ul>
+  <p class="cav">Polymarket prices as of 11:27 AM PT. One leg per player; check the injury report before tip-off.</p></section>
   <div class="best"><b>Best price: </b>Denver Nuggets -156 Novig · Memphis Grizzlies +153 Novig · Denver Nuggets -3.5 -102 Novig · Memphis Grizzlies +3.5 +100 Novig · Over 230.5 -104 Novig · Under 230.5 +100 Novig</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button><div hidden><p class="sec">Player props <span class="pct">(DraftKings lines · loaded 7:50 AM PT)</span></p>
     <p class="why">Model projections aren&apos;t validated against results yet; edges are informational, not bets. ⚑ marks a price that beats the other books.</p><details class="pm" open><summary>Points</summary><ul><li>
@@ -2703,6 +2739,16 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">The ⚑ Bulls ML is a longshot; the model disagrees. Statuses are from the NBA 8 AM ET injury report (some teams had not submitted yet); re-check the 1:30 PM PT report before tip. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  <section class="ta polyl"><div class="ta-head"><h3>Polymarket legs</h3></div><p class="why">SA −15.5: blowout risk. Starters lose fourth-quarter minutes in a rout and the bench gains them, so these lean Unders on starters’ high lines and Overs on bench players’ low lines.</p>
+  <ul class="pl"><li><span class="side u">▼ Under</span> <b>De'Aaron Fox 3+ threes</b>
+    <span class="pct">87¢ · 29 min/game · books’ line 1.5 (1 to spare)</span></li><li><span class="side u">▼ Under</span> <b>Josh Giddey 10+ rebounds</b>
+    <span class="pct">85¢ · 28 min/game · books’ line 6.5 (3 to spare)</span></li><li><span class="side u">▼ Under</span> <b>Caleb Wilson 40+ pts+reb+ast</b>
+    <span class="pct">88¢ · 32 min/game · books’ line 27.5 (12 to spare) · Day-To-Day</span></li><li><span class="side u">▼ Under</span> <b>Dylan Harper 25+ points</b>
+    <span class="pct">83¢ · 31 min/game · books’ line 17.5 (7 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Matas Buzelis 10+ points</b>
+    <span class="pct">81¢ · 26 min/game · books’ line 13.5 (4 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Jalen Smith 15+ pts+reb+ast</b>
+    <span class="pct">85¢ · 23 min/game · books’ line 20.5 (6 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Julian Champagnie 5+ points</b>
+    <span class="pct">88¢ · 26 min/game</span></li></ul>
+  <p class="cav">Polymarket prices as of 11:27 AM PT. One leg per player; check the injury report before tip-off.</p></section>
   <div class="best"><b>Best price: </b>Chicago Bulls +852 Novig ⚑ · San Antonio Spurs -1000 Novig · Chicago Bulls +14.5 +106 Novig · San Antonio Spurs -14.5 -105 ESPN BET · Over 239.5 -105 ESPN BET · Under 239.5 -110 BetMGM</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button><div hidden><p class="sec">Player props <span class="pct">(DraftKings lines · loaded 7:50 AM PT)</span></p>
     <p class="why">Model projections aren&apos;t validated against results yet; edges are informational, not bets. ⚑ marks a price that beats the other books.</p><details class="pm" open><summary>Points</summary><ul><li>
@@ -3154,6 +3200,16 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">⚑ longshot plus one prop. Statuses are from the NBA 8 AM ET injury report (some teams had not submitted yet); re-check the 1:30 PM PT report before tip. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  <section class="ta polyl"><div class="ta-head"><h3>Polymarket legs</h3></div><p class="why">LAL −14.5: blowout risk. Starters lose fourth-quarter minutes in a rout and the bench gains them, so these lean Unders on starters’ high lines and Overs on bench players’ low lines.</p>
+  <ul class="pl"><li><span class="side u">▼ Under</span> <b>Jaime Jaquez Jr. 8+ rebounds</b>
+    <span class="pct">86¢ · 28 min/game · books’ line 4.5 (3 to spare)</span></li><li><span class="side u">▼ Under</span> <b>Kyle Kuzma 3+ threes</b>
+    <span class="pct">83¢ · 27 min/game · books’ line 1.5 (1 to spare)</span></li><li><span class="side u">▼ Under</span> <b>Austin Reaves 8+ assists</b>
+    <span class="pct">84¢ · 36 min/game · books’ line 5.5 (2 to spare)</span></li><li><span class="side u">▼ Under</span> <b>Walker Kessler 16+ rebounds</b>
+    <span class="pct">87¢ · 31 min/game · books’ line 11.5 (4 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Brayden Burries 1+ threes</b>
+    <span class="pct">81¢ · 22 min/game · books’ line 1.5 (1 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Matisse Thybulle 1+ threes</b>
+    <span class="pct">77¢ · 25 min/game · books’ line 1.5 (1 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Jake LaRavia 2+ rebounds</b>
+    <span class="pct">85¢ · 25 min/game · books’ line 3.5 (2 to spare)</span></li></ul>
+  <p class="cav">Polymarket prices as of 11:27 AM PT. One leg per player; check the injury report before tip-off.</p></section>
   <div class="best"><b>Best price: </b>Los Angeles Lakers -714 Novig · Milwaukee Bucks +700 Novig ⚑ · Los Angeles Lakers -14.5 -102 Novig · Milwaukee Bucks +14.5 +100 Novig · Over 229.5 -105 DraftKings · Under 229.5 -110 BetMGM</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button><div hidden><p class="sec">Player props <span class="pct">(DraftKings lines · loaded 7:50 AM PT)</span></p>
     <p class="why">Model projections aren&apos;t validated against results yet; edges are informational, not bets. ⚑ marks a price that beats the other books.</p><details class="pm" open><summary>Points</summary><ul><li>
@@ -3560,6 +3616,14 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">Prop line shopping only; no game-line edge. Statuses are from the NBA 8 AM ET injury report (some teams had not submitted yet); re-check the 1:30 PM PT report before tip. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  <section class="ta polyl"><div class="ta-head"><h3>Polymarket legs</h3></div><p class="why">NO −3.5: should be close, so starters play full minutes. These are Overs on starters.</p>
+  <ul class="pl"><li><span class="side o">▲ Over</span> <b>Jeremiah Fears 2+ rebounds</b>
+    <span class="pct">85¢ · 29 min/game · books’ line 4.5 (3 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Michael Porter Jr. 2+ threes</b>
+    <span class="pct">86¢ · 33 min/game · books’ line 3.5 (2 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Dejounte Murray 10+ points</b>
+    <span class="pct">84¢ · 32 min/game · books’ line 15.5 (6 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Zion Williamson 4+ rebounds</b>
+    <span class="pct">84¢ · 33 min/game · books’ line 5.5 (2 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Saddiq Bey 15+ pts+reb+ast</b>
+    <span class="pct">85¢ · 27 min/game · books’ line 20.5 (6 to spare)</span></li></ul>
+  <p class="cav">Polymarket prices as of 11:27 AM PT. One leg per player; check the injury report before tip-off.</p></section>
   <div class="best"><b>Best price: </b>Brooklyn Nets +172 FanDuel · New Orleans Pelicans -175 Novig · Brooklyn Nets +4.5 +104 Novig · New Orleans Pelicans -4.5 -105 Hard Rock Bet · Over 229.5 +100 Novig · Under 229.5 -104 Novig</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button><div hidden><p class="sec">Player props <span class="pct">(DraftKings lines · loaded 7:50 AM PT)</span></p>
     <p class="why">Model projections aren&apos;t validated against results yet; edges are informational, not bets. ⚑ marks a price that beats the other books.</p><details class="pm" open><summary>Points</summary><ul><li>
@@ -4010,6 +4074,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">No ⚑ in this game; the Flyers +1.5 edge over Pinnacle is under 1%. Goalies are ESPN/Daily Faceoff projections, not yet confirmed; the model and these prices assume the projected starters. Confirm about an hour before puck drop. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  
   <div class="best"><b>Best price: </b>Edmonton Oilers -192 Novig · Philadelphia Flyers +190 Novig · Edmonton Oilers -1.5 +130 Novig · Philadelphia Flyers +1.5 -133 Novig · Over 6.5 +120 Novig · Under 6.5 -122 Novig</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button><div hidden><p class="sec">Player props <span class="pct">(DraftKings lines · loaded 7:50 AM PT)</span></p>
     <p class="why">Model projections aren&apos;t validated against results yet; edges are informational, not bets. ⚑ marks a price that beats the other books.</p><details class="pm" open><summary>Shots on goal</summary><ul><li>
@@ -4266,6 +4331,12 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">Line shopping only, contingent on Markkanen playing. Statuses are from the NBA 8 AM ET injury report (some teams had not submitted yet); re-check the 1:30 PM PT report before tip. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  <section class="ta polyl"><div class="ta-head"><h3>Polymarket legs</h3></div><p class="why">ORL −4.5: should be close, so starters play full minutes. These are Overs on starters.</p>
+  <ul class="pl"><li><span class="side o">▲ Over</span> <b>Wendell Carter Jr. 6+ rebounds</b>
+    <span class="pct">87¢ · 33 min/game · books’ line 9.5 (4 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Desmond Bane 20+ pts+reb+ast</b>
+    <span class="pct">85¢ · 35 min/game · books’ line 27.5 (8 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Franz Wagner 30+ pts+reb+ast</b>
+    <span class="pct">85¢ · 37 min/game · books’ line 37.5 (8 to spare)</span></li></ul>
+  <p class="cav">Polymarket prices as of 11:27 AM PT. One leg per player; check the injury report before tip-off.</p></section>
   <div class="best"><b>Best price: </b>Orlando Magic -147 Novig · Utah Jazz +144 Novig · Orlando Magic -3.5 +100 Novig · Utah Jazz +3.5 -102 Novig · Over 215.5 +102 Novig · Under 215.5 -106 Novig</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button><div hidden><p class="sec">Player props <span class="pct">(DraftKings lines · loaded 7:50 AM PT)</span></p>
     <p class="why">Model projections aren&apos;t validated against results yet; edges are informational, not bets. ⚑ marks a price that beats the other books.</p><details class="pm" open><summary>Points</summary><ul><li>
@@ -4431,6 +4502,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">Line shopping only, against the model's lean. Goalies are ESPN/Daily Faceoff projections, not yet confirmed; the model and these prices assume the projected starters. Confirm about an hour before puck drop. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  
   <div class="best"><b>Best price: </b>Utah Mammoth +115 Novig · Vegas Golden Knights -120 Novig · Utah Mammoth +1.5 -217 Novig · Vegas Golden Knights -1.5 +208 Novig · Over 6.5 +104 Novig · Under 6.5 -106 Novig</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button><div hidden><p class="sec">Player props <span class="pct">(DraftKings lines · loaded 7:50 AM PT)</span></p>
     <p class="why">Model projections aren&apos;t validated against results yet; edges are informational, not bets. ⚑ marks a price that beats the other books.</p><details class="pm" open><summary>Shots on goal</summary><ul><li>
@@ -4697,6 +4769,15 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">A ⚑ with no margin over Pinnacle. Statuses are from the NBA 8 AM ET injury report (some teams had not submitted yet); re-check the 1:30 PM PT report before tip. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  <section class="ta polyl"><div class="ta-head"><h3>Polymarket legs</h3></div><p class="why">HOU −6.5: in between, so a few of each.</p>
+  <ul class="pl"><li><span class="side u">▼ Under</span> <b>Brandin Podziemski 8+ rebounds</b>
+    <span class="pct">86¢ · 33 min/game · books’ line 4.5 (3 to spare)</span></li><li><span class="side u">▼ Under</span> <b>Fred VanVleet 8+ assists</b>
+    <span class="pct">85¢ · 30 min/game · books’ line 4.5 (3 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Yaxel Lendeborg 1+ threes</b>
+    <span class="pct">86¢ · 32 min/game · books’ line 1.5 (1 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Amen Thompson 2+ assists</b>
+    <span class="pct">85¢ · 34 min/game · books’ line 3.5 (2 to spare)</span></li><li><span class="side o">▲ Over</span> <b>De'Anthony Melton 5+ points</b>
+    <span class="pct">81¢ · 22 min/game · books’ line 8.5 (4 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Tari Eason 10+ pts+reb+ast</b>
+    <span class="pct">84¢ · 24 min/game · books’ line 15.5 (6 to spare)</span></li></ul>
+  <p class="cav">Polymarket prices as of 11:27 AM PT. One leg per player; check the injury report before tip-off.</p></section>
   <div class="best"><b>Best price: </b>Golden State Warriors +223 Novig ⚑ · Houston Rockets -227 Novig · Golden State Warriors +6.5 -105 DraftKings · Houston Rockets -6.5 +102 Novig · Over 220.5 +100 Novig · Under 220.5 -104 Novig</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button><div hidden><p class="sec">Player props <span class="pct">(DraftKings lines · loaded 7:50 AM PT)</span></p>
     <p class="why">Model projections aren&apos;t validated against results yet; edges are informational, not bets. ⚑ marks a price that beats the other books.</p><details class="pm" open><summary>Points</summary><ul><li>
@@ -5147,6 +5228,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">⚑ puck line plus a line-shopping ML. Goalies are ESPN/Daily Faceoff projections, not yet confirmed; the model and these prices assume the projected starters. Confirm about an hour before puck drop. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  
   <div class="best"><b>Best price: </b>Anaheim Ducks -127 Novig · Nashville Predators +125 ESPN BET · Anaheim Ducks -1.5 +182 Novig ⚑ · Nashville Predators +1.5 -185 Novig · Over 6.5 -118 Novig · Under 6.5 +111 Novig</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button><div hidden><p class="sec">Player props <span class="pct">(DraftKings lines · loaded 7:50 AM PT)</span></p>
     <p class="why">Model projections aren&apos;t validated against results yet; edges are informational, not bets. ⚑ marks a price that beats the other books.</p><details class="pm" open><summary>Shots on goal</summary><ul><li>
@@ -5397,6 +5479,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">Line shopping only, under 2% over Pinnacle. Goalies are ESPN/Daily Faceoff projections, not yet confirmed; the model and these prices assume the projected starters. Confirm about an hour before puck drop. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  
   <div class="best"><b>Best price: </b>Pittsburgh Penguins -130 Novig · San Jose Sharks +127 Novig · Pittsburgh Penguins -1.5 +186 Novig · San Jose Sharks +1.5 -189 Novig · Over 6.5 -125 Novig · Under 6.5 +120 ESPN BET</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button><div hidden><p class="sec">Player props <span class="pct">(DraftKings lines · loaded 7:50 AM PT)</span></p>
     <p class="why">Model projections aren&apos;t validated against results yet; edges are informational, not bets. ⚑ marks a price that beats the other books.</p><details class="pm" open><summary>Shots on goal</summary><ul><li>
@@ -5663,6 +5746,14 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <p class="cav">Prop line shopping only. Statuses are from the NBA 8 AM ET injury report (some teams had not submitted yet); re-check the 1:30 PM PT report before tip. Size small: ⚑ prices beat the close 73% of the time historically, but the models trail the market and single games are noisy. Prices as of ~7:45 AM PT Nov 11; lines move during the day, so re-check the price before betting.</p>
   
   </div></section>
+  <section class="ta polyl"><div class="ta-head"><h3>Polymarket legs</h3></div><p class="why">OKC −1.5: should be close, so starters play full minutes. These are Overs on starters.</p>
+  <ul class="pl"><li><span class="side o">▲ Over</span> <b>Deni Avdija 1+ threes</b>
+    <span class="pct">85¢ · 32 min/game · books’ line 1.5 (1 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Shai Gilgeous-Alexander 1+ threes</b>
+    <span class="pct">86¢ · 33 min/game · books’ line 1.5 (1 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Ajay Mitchell 2+ assists</b>
+    <span class="pct">86¢ · 27 min/game · books’ line 3.5 (2 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Damian Lillard 2+ rebounds</b>
+    <span class="pct">88¢ · 29 min/game · books’ line 3.5 (2 to spare)</span></li><li><span class="side o">▲ Over</span> <b>Toumani Camara 2+ rebounds</b>
+    <span class="pct">90¢ · 28 min/game · books’ line 3.5 (2 to spare)</span></li></ul>
+  <p class="cav">Polymarket prices as of 11:27 AM PT. One leg per player; check the injury report before tip-off.</p></section>
   <div class="best"><b>Best price: </b>Oklahoma City Thunder -106 Novig · Portland Trail Blazers +104 Novig · Oklahoma City Thunder -1.5 +106 Novig · Portland Trail Blazers +1.5 -111 Novig · Over 225.5 -104 Novig · Under 225.5 +100 Novig</div>
   <div class="props"><button type="button" class="load" onclick="this.hidden=true;this.nextElementSibling.hidden=false">Load player props</button><div hidden><p class="sec">Player props <span class="pct">(DraftKings lines · loaded 7:50 AM PT)</span></p>
     <p class="why">Model projections aren&apos;t validated against results yet; edges are informational, not bets. ⚑ marks a price that beats the other books.</p><details class="pm" open><summary>Points</summary><ul><li>
@@ -6049,6 +6140,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">45.6%</span><span class="under">−22.0% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Armenia +138 BetMGM · Cyprus +225 Hard Rock Bet · Draw +240 Hard Rock Bet · Over 2.5 +100 BetMGM · Under 2.5 -141 BetMGM</div>
   
   </div></details></li>
@@ -6069,6 +6161,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">60.9%</span><span class="under">−2.0% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Belgium -120 BetMGM · Draw +305 Bovada · Turkey +300 Hard Rock Bet · Over 3.25 +102 Bovada · Under 3.25 -122 Bovada</div>
   
   </div></details></li>
@@ -6083,6 +6176,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>ESPN / ABC / ESPN+ · TNT / truTV / HBO Max <span class="pct">(National windows only; most games air on local regional networks (ESPN+ streams out-of-market))</span> · <a href="https://www.google.com/search?q=Carolina%20Hurricanes%20vs%20Seattle%20Kraken%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Carolina Hurricanes -263 Fanatics · Seattle Kraken +210 Fanatics · Carolina Hurricanes -1.5 -105 Fanatics · Seattle Kraken +1.5 -110 Hard Rock Bet · Over 6.5 -110 Fanatics · Under 6.5 -110 Fanatics</div>
   
   </div></details></li>
@@ -6103,6 +6197,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">40.7%</span><span class="">—</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Draw +260 BetMGM · France -105 ESPN BET · Italy +275 Bovada · Over 2.5 -161 BetMGM · Under 2.5 +110 BetMGM</div>
   
   </div></details></li>
@@ -6123,6 +6218,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">33.5%</span><span class="under">−28.0% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Belarus -714 BetMGM · Draw +725 Bovada · San Marino +1800 BetMGM · Over 2.5 -164 BetMGM · Under 2.5 +115 BetMGM</div>
   
   </div></details></li>
@@ -6143,6 +6239,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">68.5%</span><span class="over">+5.5% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Albania -110 DraftKings · Draw +240 Hard Rock Bet · Finland +350 Hard Rock Bet · Over 2.5 +125 BetMGM · Under 2.5 -185 BetMGM</div>
   
   </div></details></li>
@@ -6163,6 +6260,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">52.3%</span><span class="under">−15.8% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Croatia +1100 Hard Rock Bet ⚑ · Draw +550 ESPN BET · England -400 BetMGM · Over 3.25 -105 Bovada · Under 3.25 -115 Bovada</div>
   
   </div></details></li>
@@ -6183,6 +6281,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">54.0%</span><span class="under">−12.5% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Czech Republic +1300 Hard Rock Bet ⚑ · Draw +650 ESPN BET · Spain -455 BetMGM · Over 3.25 -110 Bovada · Under 3.25 -110 Bovada</div>
   
   </div></details></li>
@@ -6203,6 +6302,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">57.0%</span><span class="over">+14.1% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Draw +450 BetMGM · Latvia +950 BetMGM · Montenegro -323 Hard Rock Bet · Over 2.5 -141 BetMGM · Under 2.5 +100 BetMGM</div>
   
   </div></details></li>
@@ -6217,6 +6317,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>ESPN / ABC / ESPN+ · TNT / truTV / HBO Max <span class="pct">(National windows only; most games air on local regional networks (ESPN+ streams out-of-market))</span> · <a href="https://www.google.com/search?q=Detroit%20Red%20Wings%20vs%20Florida%20Panthers%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Detroit Red Wings +155 FanDuel · Florida Panthers -189 FanDuel · Detroit Red Wings +1.5 -159 FanDuel · Florida Panthers -1.5 +128 FanDuel · Over 5.5 -141 FanDuel · Under 5.5 +114 FanDuel</div>
   
   </div></details></li>
@@ -6231,6 +6332,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>ESPN / ABC / ESPN+ · TNT / truTV / HBO Max <span class="pct">(National windows only; most games air on local regional networks (ESPN+ streams out-of-market))</span> · <a href="https://www.google.com/search?q=Washington%20Capitals%20vs%20New%20Jersey%20Devils%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>New Jersey Devils -167 FanDuel · Washington Capitals +138 FanDuel · New Jersey Devils -1.5 +140 FanDuel · Washington Capitals +1.5 -172 FanDuel · Over 6.5 +108 FanDuel · Under 6.5 -132 FanDuel</div>
   
   </div></details></li>
@@ -6245,6 +6347,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>ESPN / ABC / ESPN+ · TNT / truTV / HBO Max <span class="pct">(National windows only; most games air on local regional networks (ESPN+ streams out-of-market))</span> · <a href="https://www.google.com/search?q=Colorado%20Avalanche%20vs%20Ottawa%20Senators%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Colorado Avalanche -125 FanDuel · Ottawa Senators +104 FanDuel · Colorado Avalanche -1.5 +186 FanDuel · Ottawa Senators +1.5 -233 FanDuel · Over 6.5 +100 FanDuel · Under 6.5 -122 FanDuel</div>
   
   </div></details></li>
@@ -6259,6 +6362,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Memphis%20Tigers%20vs%20South%20Florida%20Bulls%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Memphis Tigers -156 Novig · South Florida Bulls +153 Caesars · Memphis Tigers -3.5 -102 Novig · South Florida Bulls +3.5 -104 Novig · Over 50.5 -105 DraftKings · Under 50.5 -110 BetMGM</div>
   
   </div></details></li>
@@ -6273,6 +6377,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Prime Video · <a href="https://www.google.com/search?q=Washington%20Commanders%20vs%20New%20York%20Giants%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>New York Giants -133 FanDuel · Washington Commanders +130 Novig ⚑ · New York Giants -2.5 -104 Novig · Washington Commanders +2.5 +100 Novig · Over 41 -110 BetMGM · Under 41 -108 BetMGM</div>
   
   </div></details></li>
@@ -6287,6 +6392,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Louisiana%20Ragin%20Cajuns%20vs%20UL%20Monroe%20Warhawks%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Louisiana Ragin Cajuns -370 Novig · UL Monroe Warhawks +344 Novig · Louisiana Ragin Cajuns -10.5 +102 Novig · UL Monroe Warhawks +10.5 -106 Novig · Over 49.5 -105 ESPN BET · Under 49.5 -110 BetMGM</div>
   
   </div></details></li>
@@ -6307,6 +6413,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">49.2%</span><span class="under">−27.2% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Draw +210 BetMGM · Kazakhstan +195 Hard Rock Bet · Moldova +164 Bovada · Over 2.5 +140 BetMGM · Under 2.5 -208 BetMGM</div>
   
   </div></details></li>
@@ -6327,6 +6434,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">76.7%</span><span class="over">+13.6% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Draw +225 Hard Rock Bet · Estonia +300 Hard Rock Bet ⚑ · Luxembourg +115 BetMGM · Over 2.5 +145 BetMGM · Under 2.5 -208 BetMGM</div>
   
   </div></details></li>
@@ -6347,6 +6455,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">68.2%</span><span class="over">+16.7% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Draw +525 Bovada · Germany -345 BetMGM · Serbia +850 Hard Rock Bet · Over 3.25 -118 Bovada · Under 3.25 -102 Bovada</div>
   
   </div></details></li>
@@ -6367,6 +6476,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">65.5%</span><span class="over">+9.4% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Azerbaijan -345 BetMGM · Draw +400 BetMGM · Liechtenstein +1200 Hard Rock Bet ⚑ · Over 2.5 +105 BetMGM · Under 2.5 -149 BetMGM</div>
   
   </div></details></li>
@@ -6387,6 +6497,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">38.1%</span><span class="under">−35.6% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Bulgaria +335 Bovada · Draw +250 BetMGM · Iceland -115 Hard Rock Bet · Over 2.5 +100 BetMGM · Under 2.5 -145 BetMGM</div>
   
   </div></details></li>
@@ -6407,6 +6518,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">62.3%</span><span class="over">+2.7% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Draw +260 BetMGM · Slovenia +450 Hard Rock Bet · Switzerland -143 Bovada · Over 2.5 +110 BetMGM · Under 2.5 -154 BetMGM</div>
   
   </div></details></li>
@@ -6427,6 +6539,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">46.5%</span><span class="under">−4.7% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Draw +575 BetMGM · North Macedonia +1500 Hard Rock Bet ⚑ · Scotland -500 BetMGM · Over 2.5 -149 BetMGM · Under 2.5 +105 BetMGM</div>
   
   </div></details></li>
@@ -6447,6 +6560,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">57.2%</span><span class="over">+13.2% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Draw +400 BetMGM · Faroe Islands +900 Hard Rock Bet ⚑ · Slovakia -278 DraftKings · Over 2.5 -118 Bovada · Under 2.5 -102 Bovada</div>
   
   </div></details></li>
@@ -6467,6 +6581,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">57.2%</span><span class="over">+17.2% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Andorra -115 ESPN BET · Draw +210 BetMGM · Gibraltar +450 Hard Rock Bet ⚑ · Over 1.5 -125 Bovada · Under 1.5 +105 BetMGM</div>
   
   </div></details></li>
@@ -6487,6 +6602,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">43.2%</span><span class="">—</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Draw +350 ESPN BET · Greece +550 Hard Rock Bet ⚑ · Netherlands -189 BetMGM · Over 2.5 -175 BetMGM · Under 2.5 +120 BetMGM</div>
   
   </div></details></li>
@@ -6501,6 +6617,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Florida%20State%20Seminoles%20vs%20Pittsburgh%20Panthers%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Florida State Seminoles +147 Novig · Pittsburgh Panthers -154 Novig · Florida State Seminoles +3.5 -111 Novig · Pittsburgh Panthers -3.5 +102 Novig · Over 53.5 -102 Novig · Under 53.5 -105 Hard Rock Bet</div>
   
   </div></details></li>
@@ -6515,6 +6632,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>ESPN / ABC · NBC / Peacock · Prime Video · NBA League Pass <span class="pct">(National windows only; most games air on local regional networks)</span> · <a href="https://www.google.com/search?q=New%20York%20Knicks%20vs%20Indiana%20Pacers%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Indiana Pacers +105 DraftKings · New York Knicks -125 DraftKings · Indiana Pacers +1.5 -105 DraftKings · New York Knicks -1.5 -115 DraftKings · Over 233.5 -110 DraftKings · Under 233.5 -110 DraftKings</div>
   
   </div></details></li>
@@ -6529,6 +6647,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Illinois%20Fighting%20Illini%20vs%20UCLA%20Bruins%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Illinois Fighting Illini +344 Novig ⚑ · UCLA Bruins -357 Novig · Illinois Fighting Illini +10 -108 Bovada · UCLA Bruins -10 -108 BetMGM · Over 47.5 -115 DraftKings · Under 47.5 +100 FanDuel</div>
   
   </div></details></li>
@@ -6543,6 +6662,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>ESPN / ABC · NBC / Peacock · Prime Video · NBA League Pass <span class="pct">(National windows only; most games air on local regional networks)</span> · <a href="https://www.google.com/search?q=Golden%20State%20Warriors%20vs%20San%20Antonio%20Spurs%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Golden State Warriors +390 DraftKings · San Antonio Spurs -526 DraftKings · Golden State Warriors +10.5 -102 DraftKings · San Antonio Spurs -10.5 -118 DraftKings · Over 235.5 -115 DraftKings · Under 235.5 -105 DraftKings</div>
   
   </div></details></li>
@@ -6557,6 +6677,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Houston%20Cougars%20vs%20Colorado%20Buffaloes%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Colorado Buffaloes +326 Novig · Houston Cougars -345 BetMGM · Colorado Buffaloes +9.5 +100 ESPN BET · Houston Cougars -9.5 -104 Novig · Over 51.5 +100 Novig · Under 51.5 -109 Novig</div>
   
   </div></details></li>
@@ -6577,6 +6698,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">46.3%</span><span class="under">−9.7% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Draw +265 Bovada · Israel +330 Bovada · Kosovo -115 Hard Rock Bet · Over 2.5 -115 Bovada · Under 2.5 -105 Bovada</div>
   
   </div></details></li>
@@ -6591,6 +6713,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Duke%20Blue%20Devils%20vs%20Miami%20Hurricanes%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Duke Blue Devils +456 Novig ⚑ · Miami Hurricanes -526 BetMGM · Duke Blue Devils +13.5 +100 Novig · Miami Hurricanes -13.5 -105 FanDuel · Over 54.5 -104 Novig · Under 54.5 -102 Novig</div>
   
   </div></details></li>
@@ -6611,6 +6734,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">57.8%</span><span class="under">−14.4% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Draw +220 Hard Rock Bet · Georgia +210 Hard Rock Bet · Hungary +149 Bovada · Over 2.5 +140 BetMGM · Under 2.5 -208 BetMGM</div>
   
   </div></details></li>
@@ -6625,6 +6749,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Northwestern%20Wildcats%20vs%20Ohio%20State%20Buckeyes%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Northwestern Wildcats +388 Novig · Ohio State Buckeyes -435 Novig · Northwestern Wildcats +12.5 -102 Novig · Ohio State Buckeyes -12.5 -106 Novig · Over 45.5 -106 Novig · Under 45.5 -102 Novig</div>
   
   </div></details></li>
@@ -6639,6 +6764,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Wake%20Forest%20Demon%20Deacons%20vs%20SMU%20Mustangs%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>SMU Mustangs -102 Novig · Wake Forest Demon Deacons +100 Novig · SMU Mustangs -1 -108 Bovada · Wake Forest Demon Deacons +1 -110 Fanatics · Over 60.5 -106 Novig · Under 60.5 -102 Novig</div>
   
   </div></details></li>
@@ -6659,6 +6785,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">54.2%</span><span class="under">−8.4% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Draw +600 Bovada ⚑ · Norway -400 BetMGM · Wales +1000 Bovada · Over 3.25 -115 Bovada · Under 3.25 -105 Bovada</div>
   
   </div></details></li>
@@ -6673,6 +6800,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Cincinnati%20Bearcats%20vs%20Iowa%20State%20Cyclones%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Cincinnati Bearcats +141 Novig · Iowa State Cyclones -141 ESPN BET · Cincinnati Bearcats +3 -108 BetMGM · Iowa State Cyclones -3 -110 BetMGM · Over 59.5 -105 ESPN BET · Under 59.5 -106 Caesars</div>
   
   </div></details></li>
@@ -6687,6 +6815,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Auburn%20Tigers%20vs%20Mississippi%20State%20Bulldogs%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Auburn Tigers -130 Hard Rock Bet · Mississippi State Bulldogs +127 Novig · Auburn Tigers -2.5 -106 Novig · Mississippi State Bulldogs +2.5 +101 Caesars · Over 50.5 +100 Novig · Under 50.5 -108 BetMGM</div>
   
   </div></details></li>
@@ -6701,6 +6830,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Wisconsin%20Badgers%20vs%20Maryland%20Terrapins%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Maryland Terrapins +277 Novig · Wisconsin Badgers -294 FanDuel · Maryland Terrapins +8.5 -104 Novig · Wisconsin Badgers -8.5 -104 Novig · Over 43.5 -105 DraftKings · Under 43.5 -110 BetMGM</div>
   
   </div></details></li>
@@ -6715,6 +6845,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Syracuse%20Orange%20vs%20NC%20State%20Wolfpack%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>NC State Wolfpack +122 Novig · Syracuse Orange -130 Novig · NC State Wolfpack +2.5 +105 FanDuel · Syracuse Orange -2.5 -111 Novig · Over 53.5 -105 FanDuel · Under 53.5 -105 Hard Rock Bet</div>
   
   </div></details></li>
@@ -6729,6 +6860,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=James%20Madison%20Dukes%20vs%20UConn%20Huskies%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>James Madison Dukes -179 Hard Rock Bet · UConn Huskies +170 ESPN BET · James Madison Dukes -4 -105 Caesars · UConn Huskies +4 -108 BetMGM · Over 57.5 -106 Novig · Under 57.5 -102 Novig</div>
   
   </div></details></li>
@@ -6743,6 +6875,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Nebraska%20Cornhuskers%20vs%20Rutgers%20Scarlet%20Knights%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Nebraska Cornhuskers -500 Novig · Rutgers Scarlet Knights +450 FanDuel · Nebraska Cornhuskers -13.5 -105 Hard Rock Bet · Rutgers Scarlet Knights +13.5 +100 Novig · Over 52 -108 Bovada · Under 52 -110 Fanatics</div>
   
   </div></details></li>
@@ -6757,6 +6890,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Georgia%20Tech%20Yellow%20Jackets%20vs%20Clemson%20Tigers%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Clemson Tigers -500 Hard Rock Bet · Georgia Tech Yellow Jackets +456 Novig ⚑ · Clemson Tigers -13.5 +102 Novig · Georgia Tech Yellow Jackets +13.5 -106 Novig · Over 47.5 -110 ESPN BET · Under 47.5 +102 Novig</div>
   
   </div></details></li>
@@ -6771,6 +6905,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Alabama%20Crimson%20Tide%20vs%20Vanderbilt%20Commodores%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Alabama Crimson Tide -714 Novig · Vanderbilt Commodores +700 Novig ⚑ · Alabama Crimson Tide -16.5 -102 Novig · Vanderbilt Commodores +16.5 -105 Hard Rock Bet · Over 50.5 -104 Novig · Under 50.5 -104 Novig</div>
   
   </div></details></li>
@@ -6785,6 +6920,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Arkansas%20State%20Red%20Wolves%20vs%20Coastal%20Carolina%20Chanticleers%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Arkansas State Red Wolves +104 Novig · Coastal Carolina Chanticleers -110 FanDuel · Arkansas State Red Wolves +1.5 -109 Novig · Coastal Carolina Chanticleers -1.5 +102 Novig · Over 50.5 -110 Hard Rock Bet · Under 50.5 +102 Novig</div>
   
   </div></details></li>
@@ -6799,6 +6935,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=UAB%20Blazers%20vs%20Temple%20Owls%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Temple Owls -125 Novig · UAB Blazers +117 Novig · Temple Owls -2.5 -102 Novig · UAB Blazers +2.5 -104 Novig · Over 48.5 +100 Novig · Under 48.5 -105 Hard Rock Bet</div>
   
   </div></details></li>
@@ -6813,6 +6950,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=East%20Carolina%20Pirates%20vs%20Charlotte%2049ers%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Charlotte 49ers +388 Novig · East Carolina Pirates -435 Novig · Charlotte 49ers +11.5 -108 DraftKings · East Carolina Pirates -11.5 -110 ESPN BET · Over 45.5 +100 FanDuel · Under 45.5 -110 ESPN BET</div>
   
   </div></details></li>
@@ -6827,6 +6965,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Tulane%20Green%20Wave%20vs%20Rice%20Owls%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Rice Owls -118 FanDuel · Tulane Green Wave +115 Novig · Rice Owls -2.5 +100 Novig · Tulane Green Wave +2.5 -104 Novig · Over 47.5 -111 Novig · Under 47.5 +102 Novig</div>
   
   </div></details></li>
@@ -6841,6 +6980,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Kennesaw%20State%20Owls%20vs%20Sam%20Houston%20State%20Bearkats%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Kennesaw State Owls -263 Novig · Sam Houston State Bearkats +245 Novig · Kennesaw State Owls -7.5 +104 Novig · Sam Houston State Bearkats +7.5 -110 FanDuel · Over 46.5 -104 Novig · Under 46.5 -106 Novig</div>
   
   </div></details></li>
@@ -6855,6 +6995,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Kansas%20State%20Wildcats%20vs%20TCU%20Horned%20Frogs%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Kansas State Wildcats +335 Novig · TCU Horned Frogs -370 Novig · Kansas State Wildcats +10 -108 BetMGM · TCU Horned Frogs -10 -110 BetMGM · Over 45.5 -105 FanDuel · Under 45.5 -102 Novig</div>
   
   </div></details></li>
@@ -6875,6 +7016,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">44.5%</span><span class="under">−11.0% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Draw +290 Bovada · Poland -118 BetMGM · Romania +300 Bovada · Over 2.5 -145 BetMGM · Under 2.5 +100 BetMGM</div>
   
   </div></details></li>
@@ -6895,6 +7037,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">51.2%</span><span class="under">−1.1% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Austria -169 Hard Rock Bet · Draw +300 BetMGM · Republic of Ireland +450 BetMGM · Over 2.5 -135 BetMGM · Under 2.5 -108 BetMGM</div>
   
   </div></details></li>
@@ -6915,6 +7058,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">62.8%</span><span class="under">−7.0% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Draw +210 BetMGM · Northern Ireland +145 Hard Rock Bet · Ukraine +220 Bovada · Over 2.5 +145 BetMGM · Under 2.5 -208 BetMGM</div>
   
   </div></details></li>
@@ -6935,6 +7079,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">34.4%</span><span class="under">−24.3% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Bosnia &amp; Herzegovina +525 Bovada ⚑ · Draw +350 Hard Rock Bet · Sweden -189 BetMGM · Over 2.5 -164 BetMGM · Under 2.5 +120 BetMGM</div>
   
   </div></details></li>
@@ -6955,6 +7100,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">39.2%</span><span class="under">−2.0% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Denmark +525 Hard Rock Bet ⚑ · Draw +355 Bovada · Portugal -189 BetMGM · Over 3 -112 Bovada · Under 3 -108 Bovada</div>
   
   </div></details></li>
@@ -6969,6 +7115,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=New%20Mexico%20State%20Aggies%20vs%20Missouri%20State%20Bears%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Missouri State Bears -112 Novig · New Mexico State Aggies +109 Caesars · Missouri State Bears -1.5 +100 Novig · New Mexico State Aggies +1.5 -105 FanDuel · Over 48.5 -110 BetMGM · Under 48.5 -108 BetMGM</div>
   
   </div></details></li>
@@ -6983,6 +7130,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Florida%20International%20Panthers%20vs%20Delaware%20Blue%20Hens%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Delaware Blue Hens -189 Hard Rock Bet · Florida International Panthers +182 Novig · Delaware Blue Hens -5 -108 BetMGM · Florida International Panthers +5 -110 BetMGM · Over 53.5 -109 Novig · Under 53.5 +102 Novig</div>
   
   </div></details></li>
@@ -6997,6 +7145,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Tennessee%20Volunteers%20vs%20Texas%20A%26M%20Aggies%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Tennessee Volunteers -130 Novig · Texas A&amp;M Aggies +127 Novig · Tennessee Volunteers -2.5 -110 Hard Rock Bet · Texas A&amp;M Aggies +2.5 +102 Novig · Over 43.5 -104 Novig · Under 43.5 -104 Novig</div>
   
   </div></details></li>
@@ -7011,6 +7160,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=USC%20Trojans%20vs%20Indiana%20Hoosiers%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Indiana Hoosiers -270 Novig · USC Trojans +251 Novig · Indiana Hoosiers -7.5 +102 Novig · USC Trojans +7.5 -106 Novig · Over 50.5 -106 Novig · Under 50.5 -102 Novig</div>
   
   </div></details></li>
@@ -7025,6 +7175,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Missouri%20Tigers%20vs%20Georgia%20Bulldogs%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Georgia Bulldogs -667 Novig · Missouri Tigers +614 Novig ⚑ · Georgia Bulldogs -15.5 -108 Caesars · Missouri Tigers +15.5 +102 Novig · Over 47.5 -102 Novig · Under 47.5 -106 Novig</div>
   
   </div></details></li>
@@ -7039,6 +7190,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Baylor%20Bears%20vs%20BYU%20Cougars%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>BYU Cougars -263 Novig · Baylor Bears +251 Novig · BYU Cougars -7.5 +106 Novig · Baylor Bears +7.5 -110 Hard Rock Bet · Over 49.5 -105 Caesars · Under 49.5 -110 BetMGM</div>
   
   </div></details></li>
@@ -7053,6 +7205,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Michigan%20Wolverines%20vs%20Oregon%20Ducks%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Michigan Wolverines +376 Novig · Oregon Ducks -385 Novig · Michigan Wolverines +11 -108 BetMGM · Oregon Ducks -11 -110 BetMGM · Over 38.5 +102 Novig · Under 38.5 -109 Novig</div>
   
   </div></details></li>
@@ -7067,6 +7220,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Arizona%20State%20Sun%20Devils%20vs%20UCF%20Knights%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Arizona State Sun Devils +144 Novig · UCF Knights -152 FanDuel · Arizona State Sun Devils +3 -102 BetMGM · UCF Knights -3 -112 Bovada · Over 48.5 -109 Novig · Under 48.5 +100 Novig</div>
   
   </div></details></li>
@@ -7081,6 +7235,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Boston%20College%20Eagles%20vs%20Notre%20Dame%20Fighting%20Irish%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Boston College Eagles +3471 Novig ⚑ · Notre Dame Fighting Irish -5000 BetMGM · Boston College Eagles +29.5 -104 Novig · Notre Dame Fighting Irish -29.5 -102 Novig · Over 52.5 -104 Novig · Under 52.5 -106 Novig</div>
   
   </div></details></li>
@@ -7095,6 +7250,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=California%20Golden%20Bears%20vs%20Virginia%20Cavaliers%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>California Golden Bears +355 Novig · Virginia Cavaliers -370 Novig · California Golden Bears +10 -106 Caesars · Virginia Cavaliers -10 -108 BetMGM · Over 46.5 -109 Novig · Under 46.5 +102 Novig</div>
   
   </div></details></li>
@@ -7109,6 +7265,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Georgia%20Southern%20Eagles%20vs%20Georgia%20State%20Panthers%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Georgia Southern Eagles -185 Novig · Georgia State Panthers +182 Novig · Georgia Southern Eagles -5.5 -102 Novig · Georgia State Panthers +5.5 -105 ESPN BET · Over 56.5 -104 Novig · Under 56.5 -104 Novig</div>
   
   </div></details></li>
@@ -7123,6 +7280,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Florida%20Atlantic%20Owls%20vs%20Tulsa%20Golden%20Hurricane%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Florida Atlantic Owls +186 Novig · Tulsa Golden Hurricane -200 Novig · Florida Atlantic Owls +5.5 +100 Novig · Tulsa Golden Hurricane -5.5 -106 Novig · Over 74.5 +100 Novig · Under 74.5 -108 BetMGM</div>
   
   </div></details></li>
@@ -7137,6 +7295,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Jacksonville%20State%20Gamecocks%20vs%20Western%20Kentucky%20Hilltoppers%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Jacksonville State Gamecocks -270 Novig · Western Kentucky Hilltoppers +260 ESPN BET · Jacksonville State Gamecocks -7.5 +106 Novig · Western Kentucky Hilltoppers +7.5 -110 FanDuel · Over 54.5 -104 Novig · Under 54.5 +100 Novig</div>
   
   </div></details></li>
@@ -7151,6 +7310,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Middle%20Tennessee%20Blue%20Raiders%20vs%20Liberty%20Flames%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Liberty Flames -1250 Novig · Middle Tennessee Blue Raiders +1076 Novig ⚑ · Liberty Flames -20.5 -105 ESPN BET · Middle Tennessee Blue Raiders +20.5 +104 Novig ⚑ · Over 53.5 +100 Novig · Under 53.5 -105 Hard Rock Bet</div>
   
   </div></details></li>
@@ -7165,6 +7325,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Nevada%20Wolf%20Pack%20vs%20Northern%20Illinois%20Huskies%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Nevada Wolf Pack -256 Novig · Northern Illinois Huskies +245 Novig · Nevada Wolf Pack -7 -108 BetMGM · Northern Illinois Huskies +7 -106 Caesars · Over 47.5 +100 Novig · Under 47.5 -105 ESPN BET</div>
   
   </div></details></li>
@@ -7179,6 +7340,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Fresno%20State%20Bulldogs%20vs%20Texas%20State%20Bobcats%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Fresno State Bulldogs +308 Novig · Texas State Bobcats -333 Novig · Fresno State Bulldogs +9.5 +102 Novig · Texas State Bobcats -9.5 -108 BetMGM · Over 59.5 -110 BetMGM · Under 59.5 +102 Novig</div>
   
   </div></details></li>
@@ -7193,6 +7355,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Washington%20Huskies%20vs%20Michigan%20State%20Spartans%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Michigan State Spartans +153 Novig · Washington Huskies -164 ESPN BET · Michigan State Spartans +3.5 -110 ESPN BET · Washington Huskies -3.5 +104 Novig · Over 43.5 -104 Novig · Under 43.5 -110 BetMGM</div>
   
   </div></details></li>
@@ -7207,6 +7370,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Ole%20Miss%20Rebels%20vs%20Oklahoma%20Sooners%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Oklahoma Sooners +100 Novig · Ole Miss Rebels -104 Novig · Oklahoma Sooners +1 -109 Caesars · Ole Miss Rebels -1 -108 Bovada · Over 49.5 +102 Novig · Under 49.5 -108 Caesars</div>
   
   </div></details></li>
@@ -7221,6 +7385,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Southern%20Mississippi%20Golden%20Eagles%20vs%20Louisiana%20Tech%20Bulldogs%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Louisiana Tech Bulldogs -833 Novig · Southern Mississippi Golden Eagles +700 Novig ⚑ · Louisiana Tech Bulldogs -17.5 +100 Novig · Southern Mississippi Golden Eagles +17.5 -104 Novig · Over 56.5 +104 Novig · Under 56.5 -110 ESPN BET</div>
   
   </div></details></li>
@@ -7235,6 +7400,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Kansas%20Jayhawks%20vs%20West%20Virginia%20Mountaineers%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Kansas Jayhawks +133 Novig · West Virginia Mountaineers -141 Novig · Kansas Jayhawks +3 -115 BetMGM · West Virginia Mountaineers -3 -102 BetMGM · Over 67.5 +100 Novig · Under 67.5 -106 Novig</div>
   
   </div></details></li>
@@ -7249,6 +7415,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Oregon%20State%20Beavers%20vs%20Boise%20State%20Broncos%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Boise State Broncos -500 Novig · Oregon State Beavers +456 Novig ⚑ · Boise State Broncos -13.5 -104 Novig · Oregon State Beavers +13.5 +100 FanDuel · Over 65.5 -104 Novig · Under 65.5 -105 Fanatics</div>
   
   </div></details></li>
@@ -7263,6 +7430,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Appalachian%20State%20Mountaineers%20vs%20Marshall%20Thundering%20Herd%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Appalachian State Mountaineers -111 Novig · Marshall Thundering Herd +104 Novig · Appalachian State Mountaineers -1.5 +100 Novig · Marshall Thundering Herd +1.5 -105 Hard Rock Bet · Over 53.5 -109 Novig · Under 53.5 +102 Novig</div>
   
   </div></details></li>
@@ -7277,6 +7445,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Florida%20Gators%20vs%20Kentucky%20Wildcats%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Florida Gators +155 Hard Rock Bet · Kentucky Wildcats -167 FanDuel · Florida Gators +3.5 -109 Novig · Kentucky Wildcats -3.5 +100 Novig · Over 52.5 -108 Caesars · Under 52.5 +100 Novig</div>
   
   </div></details></li>
@@ -7291,6 +7460,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Minnesota%20Golden%20Gophers%20vs%20Penn%20State%20Nittany%20Lions%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Minnesota Golden Gophers +300 Novig · Penn State Nittany Lions -312 Novig · Minnesota Golden Gophers +9.5 +100 Novig · Penn State Nittany Lions -9.5 -104 Novig · Over 42 -110 Bovada · Under 42 -105 Caesars</div>
   
   </div></details></li>
@@ -7305,6 +7475,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=San%20Jose%20State%20Spartans%20vs%20Air%20Force%20Falcons%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Air Force Falcons -435 Novig · San Jose State Spartans +400 Novig · Air Force Falcons -12.5 +100 Novig · San Jose State Spartans +12.5 -106 Novig · Over 47.5 +100 Novig · Under 47.5 -105 BetMGM</div>
   
   </div></details></li>
@@ -7319,6 +7490,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Troy%20Trojans%20vs%20South%20Alabama%20Jaguars%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>South Alabama Jaguars -141 FanDuel · Troy Trojans +145 Hard Rock Bet ⚑ · South Alabama Jaguars -3 -108 BetMGM · Troy Trojans +3 -108 Bovada · Over 55.5 -110 BetMGM · Under 55.5 +102 Novig</div>
   
   </div></details></li>
@@ -7333,6 +7505,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Louisville%20Cardinals%20vs%20North%20Carolina%20Tar%20Heels%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Louisville Cardinals -159 Novig · North Carolina Tar Heels +155 ESPN BET · Louisville Cardinals -3.5 +100 Novig · North Carolina Tar Heels +3.5 -104 Novig · Over 59.5 -109 Novig · Under 59.5 +104 Novig</div>
   
   </div></details></li>
@@ -7347,6 +7520,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=UNLV%20Rebels%20vs%20New%20Mexico%20Lobos%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>New Mexico Lobos -556 Novig · UNLV Rebels +506 Novig · New Mexico Lobos -14 -110 BetMGM · UNLV Rebels +14 -103 Bovada · Over 46.5 -106 Novig · Under 46.5 -102 Novig</div>
   
   </div></details></li>
@@ -7361,6 +7535,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Purdue%20Boilermakers%20vs%20Iowa%20Hawkeyes%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Iowa Hawkeyes -833 Novig · Purdue Boilermakers +720 FanDuel ⚑ · Iowa Hawkeyes -17.5 +104 Novig ⚑ · Purdue Boilermakers +17.5 -106 Novig · Over 47.5 -106 Caesars · Under 47.5 +104 Novig ⚑</div>
   
   </div></details></li>
@@ -7375,6 +7550,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Stanford%20Cardinal%20vs%20Virginia%20Tech%20Hokies%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Stanford Cardinal +567 Novig ⚑ · Virginia Tech Hokies -625 Novig · Stanford Cardinal +14.5 +100 Novig · Virginia Tech Hokies -14.5 -106 Novig · Over 58.5 +102 Novig · Under 58.5 -108 Caesars</div>
   
   </div></details></li>
@@ -7389,6 +7565,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Texas%20Longhorns%20vs%20LSU%20Tigers%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>LSU Tigers -172 FanDuel · Texas Longhorns +163 Bovada · LSU Tigers -4 -109 Caesars · Texas Longhorns +4 -108 BetMGM · Over 46.5 +102 Novig · Under 46.5 -110 Hard Rock Bet</div>
   
   </div></details></li>
@@ -7403,6 +7580,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Utah%20Utes%20vs%20Arizona%20Wildcats%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Arizona Wildcats +122 Novig · Utah Utes -133 Novig · Arizona Wildcats +2.5 +108 Novig · Utah Utes -2.5 -112 Novig · Over 54.5 -105 Hard Rock Bet · Under 54.5 +100 Novig</div>
   
   </div></details></li>
@@ -7417,6 +7595,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=South%20Carolina%20Gamecocks%20vs%20Arkansas%20Razorbacks%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Arkansas Razorbacks +270 Novig · South Carolina Gamecocks -286 Novig · Arkansas Razorbacks +7.5 -102 Novig · South Carolina Gamecocks -7.5 -106 Novig · Over 51.5 +100 Novig · Under 51.5 -102 Novig</div>
   
   </div></details></li>
@@ -7431,6 +7610,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=North%20Texas%20Mean%20Green%20vs%20UTSA%20Roadrunners%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>North Texas Mean Green -122 Novig · UTSA Roadrunners +115 Novig · North Texas Mean Green -2.5 +100 Novig · UTSA Roadrunners +2.5 -102 Novig · Over 76 -105 Bovada · Under 76 -109 Caesars</div>
   
   </div></details></li>
@@ -7445,6 +7625,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Utah%20State%20Aggies%20vs%20San%20Diego%20State%20Aztecs%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>San Diego State Aztecs +133 Novig · Utah State Aggies -135 Novig · San Diego State Aztecs +2.5 +104 Novig · Utah State Aggies -2.5 -106 Novig · Over 42.5 +100 Novig · Under 42.5 -105 ESPN BET</div>
   
   </div></details></li>
@@ -7459,6 +7640,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Texas%20Tech%20Red%20Raiders%20vs%20Oklahoma%20State%20Cowboys%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Oklahoma State Cowboys -149 FanDuel · Texas Tech Red Raiders +147 Novig · Oklahoma State Cowboys -3.5 +106 Novig · Texas Tech Red Raiders +3.5 -109 Novig · Over 72.5 -104 Novig · Under 72.5 +100 Novig</div>
   
   </div></details></li>
@@ -7473,6 +7655,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Wyoming%20Cowboys%20vs%20UTEP%20Miners%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>UTEP Miners +270 Bovada · Wyoming Cowboys -303 BetMGM · UTEP Miners +7.5 -102 Novig · Wyoming Cowboys -7.5 -108 DraftKings · Over 39.5 -105 Hard Rock Bet · Under 39.5 +102 Novig</div>
   
   </div></details></li>
@@ -7487,6 +7670,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=Colorado%20State%20Rams%20vs%20Washington%20State%20Cougars%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Colorado State Rams +300 Novig · Washington State Cougars -323 Novig · Colorado State Rams +9.5 -102 Novig · Washington State Cougars -9.5 -106 Novig · Over 67.5 +102 Novig · Under 67.5 -110 BetMGM</div>
   
   </div></details></li>
@@ -7501,6 +7685,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>Varies by game · <a href="https://www.google.com/search?q=North%20Dakota%20State%20Bison%20vs%20Hawaii%20Rainbow%20Warriors%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Hawaii Rainbow Warriors +220 ESPN BET ⚑ · North Dakota State Bison -227 Hard Rock Bet · Hawaii Rainbow Warriors +6.5 +102 Novig · North Dakota State Bison -6.5 -106 Novig · Over 38.5 +102 Novig · Under 38.5 -109 Caesars</div>
   
   </div></details></li>
@@ -7515,6 +7700,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>NFL Network <span class="pct">(International game)</span> · <a href="https://www.google.com/search?q=New%20England%20Patriots%20vs%20Detroit%20Lions%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Detroit Lions -145 Novig · New England Patriots +138 Novig · Detroit Lions -3 -102 BetMGM · New England Patriots +3 -115 Bovada · Over 51 -105 BetMGM · Under 51 -110 Fanatics</div>
   
   </div></details></li>
@@ -7529,6 +7715,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>CBS · Paramount+ <span class="pct">(Regional — depends on your market; out-of-market games need NFL Sunday Ticket)</span> · <a href="https://www.google.com/search?q=Miami%20Dolphins%20vs%20Indianapolis%20Colts%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Indianapolis Colts -189 Novig · Miami Dolphins +186 Novig ⚑ · Indianapolis Colts -3.5 -105 Hard Rock Bet · Miami Dolphins +3.5 +102 Novig · Over 38 -108 Caesars · Under 38 -108 BetMGM</div>
   
   </div></details></li>
@@ -7543,6 +7730,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>CBS · Paramount+ <span class="pct">(Regional — depends on your market; out-of-market games need NFL Sunday Ticket)</span> · <a href="https://www.google.com/search?q=Jacksonville%20Jaguars%20vs%20Tennessee%20Titans%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Jacksonville Jaguars -526 DraftKings · Tennessee Titans +506 Novig ⚑ · Jacksonville Jaguars -10.5 -104 Novig · Tennessee Titans +10.5 +100 Novig · Over 46.5 +102 Novig · Under 46.5 -104 Novig</div>
   
   </div></details></li>
@@ -7557,6 +7745,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>FOX <span class="pct">(Regional — depends on your market; out-of-market games need NFL Sunday Ticket)</span> · <a href="https://www.google.com/search?q=Minnesota%20Vikings%20vs%20Green%20Bay%20Packers%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Green Bay Packers -167 Novig · Minnesota Vikings +163 Novig · Green Bay Packers -3.5 +106 Novig · Minnesota Vikings +3.5 -109 Novig · Over 41.5 -104 Novig · Under 41.5 -102 Novig</div>
   
   </div></details></li>
@@ -7571,6 +7760,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>CBS · Paramount+ <span class="pct">(Regional — depends on your market; out-of-market games need NFL Sunday Ticket)</span> · <a href="https://www.google.com/search?q=Buffalo%20Bills%20vs%20New%20York%20Jets%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Buffalo Bills -400 DraftKings · New York Jets +388 Novig ⚑ · Buffalo Bills -8 -110 BetMGM · New York Jets +8 -105 Hard Rock Bet · Over 51 -106 Caesars · Under 51 -108 Bovada</div>
   
   </div></details></li>
@@ -7585,6 +7775,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>CBS · Paramount+ <span class="pct">(Regional — depends on your market; out-of-market games need NFL Sunday Ticket)</span> · <a href="https://www.google.com/search?q=Houston%20Texans%20vs%20Cleveland%20Browns%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Cleveland Browns +208 Novig · Houston Texans -213 Novig · Cleveland Browns +5 -108 BetMGM · Houston Texans -5 -108 Caesars · Over 40 -108 Caesars · Under 40 -105 BetMGM</div>
   
   </div></details></li>
@@ -7599,6 +7790,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>FOX <span class="pct">(Regional — depends on your market; out-of-market games need NFL Sunday Ticket)</span> · <a href="https://www.google.com/search?q=Carolina%20Panthers%20vs%20New%20Orleans%20Saints%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Carolina Panthers +120 BetMGM · New Orleans Saints -127 Novig · Carolina Panthers +2.5 -106 Novig · New Orleans Saints -2.5 +100 Novig · Over 48.5 -109 Novig · Under 48.5 +104 Novig</div>
   
   </div></details></li>
@@ -7613,6 +7805,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>CBS · Paramount+ <span class="pct">(Regional — depends on your market; out-of-market games need NFL Sunday Ticket)</span> · <a href="https://www.google.com/search?q=Kansas%20City%20Chiefs%20vs%20Atlanta%20Falcons%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Atlanta Falcons +167 Novig · Kansas City Chiefs -169 Novig · Atlanta Falcons +3.5 -112 Novig · Kansas City Chiefs -3.5 +108 Novig · Over 45 -110 BetMGM · Under 45 -108 BetMGM</div>
   
   </div></details></li>
@@ -7633,6 +7826,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">49.5%</span><span class="under">−2.0% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Draw +625 BetMGM · France -476 BetMGM · Turkey +1000 BetMGM · Over 3.5 -141 BetMGM · Under 3.5 -102 BetMGM</div>
   
   </div></details></li>
@@ -7653,6 +7847,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">66.6%</span><span class="over">+4.5% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Draw +333 BetMGM · England +400 BetMGM · Spain -175 BetMGM · Over 3.5 +120 BetMGM · Under 3.5 -175 BetMGM</div>
   
   </div></details></li>
@@ -7673,6 +7868,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">40.4%</span><span class="under">−25.3% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Belgium +115 BetMGM · Draw +240 BetMGM · Italy +220 BetMGM · Over 2.5 -120 BetMGM · Under 2.5 -118 BetMGM</div>
   
   </div></details></li>
@@ -7693,6 +7889,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
       <span class="tab">35.8%</span><span class="under">−24.9% EV</span></li></ul>
     <p class="why">Model edges are informational: in backtests the soccer model trailed the closing line.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Croatia -233 BetMGM · Czech Republic +625 BetMGM · Draw +375 BetMGM · Over 2.5 -161 BetMGM · Under 2.5 +110 BetMGM</div>
   
   </div></details></li>
@@ -7707,6 +7904,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>FOX <span class="pct">(Regional — depends on your market; out-of-market games need NFL Sunday Ticket)</span> · <a href="https://www.google.com/search?q=Los%20Angeles%20Rams%20vs%20Arizona%20Cardinals%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Arizona Cardinals +388 Novig ⚑ · Los Angeles Rams -417 DraftKings · Arizona Cardinals +9.5 -106 Novig · Los Angeles Rams -9.5 +100 Novig · Over 39.5 +100 ESPN BET · Under 39.5 -110 Fanatics</div>
   
   </div></details></li>
@@ -7721,6 +7919,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>FOX <span class="pct">(Regional — depends on your market; out-of-market games need NFL Sunday Ticket)</span> · <a href="https://www.google.com/search?q=Seattle%20Seahawks%20vs%20Las%20Vegas%20Raiders%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Las Vegas Raiders +257 Novig · Seattle Seahawks -270 Novig · Las Vegas Raiders +6.5 +102 Novig · Seattle Seahawks -6.5 -106 Novig · Over 40.5 -104 Novig · Under 40.5 +102 Novig</div>
   
   </div></details></li>
@@ -7735,6 +7934,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>FOX <span class="pct">(Regional — depends on your market; out-of-market games need NFL Sunday Ticket)</span> · <a href="https://www.google.com/search?q=San%20Francisco%2049ers%20vs%20Dallas%20Cowboys%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Dallas Cowboys +194 Novig ⚑ · San Francisco 49ers -200 Novig · Dallas Cowboys +4 -109 Caesars · San Francisco 49ers -4 -108 BetMGM · Over 55.5 +100 Novig · Under 55.5 -102 Novig</div>
   
   </div></details></li>
@@ -7749,6 +7949,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>NBC · Peacock · <a href="https://www.google.com/search?q=Pittsburgh%20Steelers%20vs%20Cincinnati%20Bengals%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Cincinnati Bengals -175 DraftKings · Pittsburgh Steelers +170 Novig · Cincinnati Bengals -3.5 +102 Novig · Pittsburgh Steelers +3.5 -109 Novig · Over 49.5 +102 Novig · Under 49.5 -106 Novig</div>
   
   </div></details></li>
@@ -7765,6 +7966,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
   
   
+  
   </div></details></li>
 <li class="game" id="g-55a62e5cc433daeb03502b34db05647e" data-league="uefa-nations-league" data-day="2026-11-16" data-start="2026-11-16T19:45:00.000Z"><details>
   <summary><div>
@@ -7779,6 +7981,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
   
   
+  
   </div></details></li>
 <li class="game" id="g-35e3bdff558b5d1506251e814986f164" data-league="nfl" data-day="2026-11-16" data-start="2026-11-17T01:15:00.000Z"><details>
   <summary><div>
@@ -7791,6 +7994,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>ESPN · ABC · <a href="https://www.google.com/search?q=Los%20Angeles%20Chargers%20vs%20Baltimore%20Ravens%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   <div class="best"><b>Best price: </b>Baltimore Ravens -204 Novig · Los Angeles Chargers +194 Novig · Baltimore Ravens -4.5 -104 Novig · Los Angeles Chargers +4.5 -104 Novig · Over 38.5 -109 Novig · Under 38.5 +102 Novig</div>
   
   </div></details></li>
@@ -7807,6 +8011,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
   
   
+  
   </div></details></li>
 <li class="game" id="g-770e80269ec2ffddc826bc50330c475b" data-league="uefa-nations-league" data-day="2026-11-17" data-start="2026-11-17T19:45:00.000Z"><details>
   <summary><div>
@@ -7819,6 +8024,7 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
   <div class="body"><p class="tv"><b>Where to watch: </b>FOX / FS1 / FS2 · Tubi · TUDN / ViX (Spanish) · <a href="https://www.google.com/search?q=Norway%20vs%20Denmark%20TV%20channel" target="_blank" rel="noopener noreferrer">TV listings ↗</a></p>
   <section class="goals"><h4>Goals: over/under</h4><p class="pct">No total quoted by the books yet.</p></section>
   <section class="ta"><div class="ta-head"><h3>Today&apos;s Analysis</h3></div><p class="pct">No analysis for this game.</p></section>
+  
   
   
   </div></details></li></ul>
@@ -7870,4 +8076,7 @@ const now=Date.now();document.querySelectorAll('li.game').forEach(g=>{const s=Da
 document.querySelectorAll('.jump').forEach(a=>a.onclick=e=>{e.preventDefault();const g=document.querySelector(a.getAttribute('href'));day=g.dataset.day;show();
   g.querySelector('details').open=true;g.scrollIntoView({behavior:'smooth',block:'start'});g.classList.add('hl');setTimeout(()=>g.classList.remove('hl'),1600)});
 show();
+(()=>{const m=location.hash.match(/^#find=(.+)$/);if(!m)return;const nicks=decodeURIComponent(m[1]).toLowerCase().split('|');
+  const g=[...document.querySelectorAll('li.game')].find(li=>{const t=(li.querySelector('.matchup')?.textContent||'').toLowerCase();return nicks.every(n=>t.includes(n))});if(!g)return;
+  const l=g.dataset.league;tab=tabFor(l);if(tab==='soccer')sub=l;day=g.dataset.day;show();g.querySelector('details').open=true;setTimeout(()=>{g.scrollIntoView({block:'start'});g.classList.add('hl');setTimeout(()=>g.classList.remove('hl'),1600)},60)})();
 </script></body></html>
