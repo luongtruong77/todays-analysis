@@ -79,13 +79,40 @@ li.game{scroll-margin-top:12px;transition:box-shadow .3s}li.game.hl{box-shadow:0
 .back{border:1px solid var(--line);border-radius:999px;background:none;color:var(--ink);font:500 13px/1.5 inherit;padding:4px 12px;cursor:pointer}.back:hover{background:var(--line2)}
 .tabs button[data-tab="home"]{background:var(--line2);color:var(--ink)}.tabs button[data-tab="home"].on{background:var(--day);color:var(--dayInk)}
 </style></head><body><main>
-<header><h1 id="title">Today&apos;s Analysis</h1><div class="hd"><span>Odds 7:53 AM PT</span><button type="button" class="theme" id="theme">◐ Auto</button></div></header>
-<a href="nfl-ml-parlay.html" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px;margin:10px 0;border:1px solid var(--line);border-radius:10px;color:var(--ink);text-decoration:none;font-size:14px"><span><b>NFL ML / spread parlay</b> · Sunday Nov 15, one leg per game</span><span aria-hidden="true">›</span></a>
-<a href="nba-ml-parlay.html" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px;margin:10px 0;border:1px solid var(--line);border-radius:10px;color:var(--ink);text-decoration:none;font-size:14px"><span><b>NBA ML / spread parlay</b> · tonight, Nov 14, one leg per game</span><span aria-hidden="true">›</span></a>
-<a href="nhl-ml-parlay.html" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px;margin:10px 0;border:1px solid var(--line);border-radius:10px;color:var(--ink);text-decoration:none;font-size:14px"><span><b>NHL ML / puck line parlay</b> · tonight, Nov 14, one leg per game</span><span aria-hidden="true">›</span></a>
-<a href="cfb-ml-parlay.html" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px;margin:10px 0;border:1px solid var(--line);border-radius:10px;color:var(--ink);text-decoration:none;font-size:14px"><span><b>College football ML / spread parlay</b> · tonight, Nov 14, games from 4:30 PM PT</span><span aria-hidden="true">›</span></a>
-<a href="nfl-lowest-legs.html" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px;margin:10px 0;border:1px solid var(--line);border-radius:10px;color:var(--ink);text-decoration:none;font-size:14px"><span><b>NFL lowest legs</b> · full season, plus Sunday Nov 15 slate (12 games)</span><span aria-hidden="true">›</span></a>
-<a href="nba-lowest-legs.html" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px;margin:10px 0;border:1px solid var(--line);border-radius:10px;color:var(--ink);text-decoration:none;font-size:14px"><span><b>NBA lowest legs</b> · season results, plus tonight's 6 games</span><span aria-hidden="true">›</span></a>
+<header><h1 id="title">Today&apos;s Analysis</h1><div class="hd"><span>Odds 7:53 AM PT</span><button type="button" class="theme" id="theme">◐ Auto</button></div></header><section id="parlay-hub"><style>
+#parlay-hub{margin:14px 0 6px}
+#parlay-hub .ph-h{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:0 0 8px}
+#parlay-hub h2{font-size:15px;margin:0;letter-spacing:.01em}
+#parlay-hub .ph-h span{font-size:12px;color:var(--faint)}
+#parlay-hub .ph-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media (min-width:560px){#parlay-hub .ph-g{grid-template-columns:repeat(4,minmax(0,1fr))}}
+#parlay-hub .ph-t{display:block;border:1px solid var(--line);border-radius:12px;padding:10px 11px;color:var(--ink);text-decoration:none;background:var(--bg);transition:border-color .15s,transform .15s}
+#parlay-hub .ph-t:hover{border-color:var(--pillInk);transform:translateY(-1px)}
+#parlay-hub .ph-top{display:flex;justify-content:space-between;align-items:center;gap:6px}
+#parlay-hub .ph-lg{font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 7px;border-radius:999px;color:var(--c);background:color-mix(in srgb,var(--c) 14%,transparent)}
+#parlay-hub .ph-nfl{--c:#2563eb}#parlay-hub .ph-nba{--c:#ea580c}#parlay-hub .ph-nhl{--c:#0891b2}#parlay-hub .ph-cfb{--c:#16a34a}
+#parlay-hub .ph-when{font-size:11px;color:var(--faint);white-space:nowrap}
+#parlay-hub .ph-ttl{font-size:13px;font-weight:600;margin-top:6px}
+#parlay-hub .ph-stat{display:flex;align-items:baseline;gap:6px;margin-top:2px}
+#parlay-hub .ph-stat b{font-size:24px;line-height:1.1;font-variant-numeric:tabular-nums}
+#parlay-hub .ph-stat span{font-size:13px;color:var(--mute);font-variant-numeric:tabular-nums}
+#parlay-hub .ph-sub{font-size:11px;color:var(--faint);margin-top:2px}
+#parlay-hub .ph-res{font-weight:600}#parlay-hub .ph-won{color:var(--flag)}#parlay-hub .ph-lost{color:var(--under)}
+#parlay-hub .ph-lows{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px;margin-top:8px}
+#parlay-hub .ph-low{display:flex;align-items:center;gap:10px}
+#parlay-hub .ph-lt{display:flex;flex-direction:column;min-width:0;flex:1}
+#parlay-hub .ph-lt b{font-size:13px}#parlay-hub .ph-lt span{font-size:12px;color:var(--mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#parlay-hub .ph-go{color:var(--faint);font-size:18px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #parlay-hub .ph-nfl{--c:#60a5fa}:root:not([data-theme="light"]) #parlay-hub .ph-nba{--c:#fb923c}:root:not([data-theme="light"]) #parlay-hub .ph-nhl{--c:#22d3ee}:root:not([data-theme="light"]) #parlay-hub .ph-cfb{--c:#4ade80}}
+:root[data-theme="dark"] #parlay-hub .ph-nfl{--c:#60a5fa}:root[data-theme="dark"] #parlay-hub .ph-nba{--c:#fb923c}:root[data-theme="dark"] #parlay-hub .ph-nhl{--c:#22d3ee}:root[data-theme="dark"] #parlay-hub .ph-cfb{--c:#4ade80}
+</style><div class="ph-h"><h2>Parlays</h2><span>chance the core hits · payout</span></div><div class="ph-g"><a class="ph-t" href="nfl-ml-parlay.html"><div class="ph-top"><span class="ph-lg ph-nfl">NFL</span><span class="ph-when">Sun, Nov 15</span></div><div class="ph-ttl">ML / spread</div><div class="ph-stat"><b>39%</b><span>+148</span></div><div class="ph-sub">3-leg core · 12 games</div></a><a class="ph-t" href="nba-ml-parlay.html"><div class="ph-top"><span class="ph-lg ph-nba">NBA</span><span class="ph-when">Sat, Nov 14</span></div><div class="ph-ttl">ML / spread</div><div class="ph-stat"><b>36%</b><span>+151</span></div><div class="ph-sub">3-leg core · 5 games</div></a><a class="ph-t" href="nhl-ml-parlay.html"><div class="ph-top"><span class="ph-lg ph-nhl">NHL</span><span class="ph-when">Sat, Nov 14</span></div><div class="ph-ttl">ML / puck line</div><div class="ph-stat"><b>38%</b><span>+150</span></div><div class="ph-sub">3-leg core · 12 games</div></a><a class="ph-t" href="cfb-ml-parlay.html"><div class="ph-top"><span class="ph-lg ph-cfb">CFB</span><span class="ph-when">Sat, Nov 14</span></div><div class="ph-ttl">ML / spread</div><div class="ph-stat"><b>39%</b><span>+148</span></div><div class="ph-sub">3-leg core · 12 games</div></a></div><div class="ph-lows"><a class="ph-t ph-low" href="nfl-lowest-legs.html" data-label="full season, plus Sunday Nov 15 slate (12 games)"><span class="ph-lg ph-nfl">NFL</span><span class="ph-lt"><b>Lowest legs</b><span>full season, plus Sunday Nov 15 slate (12 games)</span></span><span class="ph-go" aria-hidden="true">›</span></a><a class="ph-t ph-low" href="nba-lowest-legs.html" data-label="season results, plus tonight's 6 games"><span class="ph-lg ph-nba">NBA</span><span class="ph-lt"><b>Lowest legs</b><span>season results, plus tonight's 6 games</span></span><span class="ph-go" aria-hidden="true">›</span></a></div></section>
+
+
+
+
+
+
+
 <nav class="tabs"><button data-tab="home">Today</button><button data-tab="nfl">NFL <span style="opacity:.7;font-weight:400">14</span></button><button data-tab="soccer">Soccer <span style="opacity:.7;font-weight:400">55</span></button><button data-tab="cfb">College Football <span style="opacity:.7;font-weight:400">62</span></button><button data-tab="nhl">NHL <span style="opacity:.7;font-weight:400">14</span></button><button data-tab="nba">NBA <span style="opacity:.7;font-weight:400">7</span></button></nav>
 <nav class="subs" hidden><button data-league="epl">Premier League (6)</button><button data-league="la-liga">La Liga (3)</button><button data-league="bundesliga">Bundesliga (6)</button><button data-league="serie-a">Serie A (2)</button><button data-league="ligue-1">Ligue 1 (1)</button><button data-league="mls">MLS (2)</button><button data-league="uefa-nations-league">Nations League (35)</button></nav>
 <div id="backbar" hidden><button type="button" class="back" id="back">← Today</button></div>
